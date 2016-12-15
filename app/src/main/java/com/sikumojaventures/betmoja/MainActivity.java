@@ -1,18 +1,39 @@
 package com.sikumojaventures.betmoja;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.rampo.updatechecker.UpdateChecker;
+import com.rampo.updatechecker.notice.Notice;
+
 
 public class MainActivity extends ActionBarActivity {
+
+    private String TAG = "MainActivity";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        checkForUpdate();
+
+
     }
+
+    public void checkForUpdate(){
+        try{
+            UpdateChecker checker = new UpdateChecker(this);
+            checker.setNotice(Notice.DIALOG);
+            checker.start();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
