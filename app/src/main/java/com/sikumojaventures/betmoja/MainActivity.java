@@ -10,7 +10,7 @@ import com.rampo.updatechecker.UpdateChecker;
 import com.rampo.updatechecker.notice.Notice;
 import com.sikumojaventures.betmoja.auth.LoginActivity;
 import com.sikumojaventures.betmoja.util.ConnectionDetector;
-import com.sikumojaventures.betmoja.util.UserSessionManager;
+import com.sikumojaventures.betmoja.db.UserSessionManager;
 
 
 public class MainActivity extends ActionBarActivity {

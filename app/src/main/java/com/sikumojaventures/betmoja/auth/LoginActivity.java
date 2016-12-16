@@ -16,7 +16,7 @@ import com.sikumojaventures.betmoja.MainActivity;
 import com.sikumojaventures.betmoja.R;
 import com.sikumojaventures.betmoja.util.ConnectionDetector;
 import com.sikumojaventures.betmoja.util.JSONParser;
-import com.sikumojaventures.betmoja.util.UserSessionManager;
+import com.sikumojaventures.betmoja.db.UserSessionManager;
 
 
 public class LoginActivity extends ActionBarActivity implements OnClickListener{

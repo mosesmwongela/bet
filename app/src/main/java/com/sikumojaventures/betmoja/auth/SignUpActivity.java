@@ -6,9 +6,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -20,7 +17,7 @@ import com.sikumojaventures.betmoja.R;
 import com.sikumojaventures.betmoja.util.Config;
 import com.sikumojaventures.betmoja.util.ConnectionDetector;
 import com.sikumojaventures.betmoja.util.JSONParser;
-import com.sikumojaventures.betmoja.util.UserSessionManager;
+import com.sikumojaventures.betmoja.db.UserSessionManager;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
