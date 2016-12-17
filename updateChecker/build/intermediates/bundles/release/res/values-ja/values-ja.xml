@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/home/mwongela/Desktop/BetMoja/updateChecker/src/main/res/values-ja/strings.xml -->
-    <eat-comment/>
     <string name="amazonStore">Amazon App Store</string>
     <string name="dialogNegativeButton">無視する</string>
     <string name="dialogNeutralButton">後で再度通知する</string>

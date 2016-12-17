@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/home/mwongela/Desktop/BetMoja/updateChecker/build/intermediates/bundles/debug/res/values-et/values-et.xml -->
-    <eat-comment/>
     <string name="amazonStore">Amazon App Store</string>
     <string name="dialogNegativeButton">Tänan, ei soovi</string>
     <string name="dialogNeutralButton">Hiljem</string>

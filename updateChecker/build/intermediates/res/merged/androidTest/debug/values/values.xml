@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/home/mwongela/Desktop/BetMoja/updateChecker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-beta1/res/values/values.xml -->
-    <eat-comment/>
     <attr format="reference" name="drawerArrowStyle"/>
     <attr format="dimension" name="height"/>
     <attr format="boolean" name="isLightTheme"/>
@@ -224,18 +222,14 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
-    <!-- From: file:/home/mwongela/Desktop/BetMoja/updateChecker/build/intermediates/bundles/debug/res/values/values.xml -->
-    <eat-comment/>
     <string name="amazonStore">Amazon App Store</string>
     <string name="dialogNegativeButton">No, thanks</string>
     <string name="dialogNeutralButton">Later</string>
-    <string name="dialogPositiveButton">OK</string>
+    <string name="dialogPositiveButton">Update</string>
     <string name="downloadFor">Check out the new update for %1$s!\nAvailable now on %2$s.</string>
     <string name="googlePlay">Google Play</string>
     <string name="library_name">Update Checker</string>
     <string name="newUpdateAvailable">New update found</string>
-    <!-- From: file:/home/mwongela/Desktop/BetMoja/updateChecker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-beta1/res/values/values.xml -->
-    <eat-comment/>
     <string name="status_bar_notification_info_overflow">999+</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>

@@ -3,9 +3,39 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:background="@drawable/list_row_selector">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/spinner_background"
+        android:id="@+id/spinner_background">
+
+        <Spinner
+            android:id="@+id/datespinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="4dp"
+            android:background="@null"
+            android:spinnerMode="dialog"
+            android:gravity="center"
+            android:paddingTop="4dp"
+            android:textColor="@color/date_kick_off"
+            android:textSize="@dimen/home_away" />
+
+
+    </RelativeLayout>
+
+
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/list_divider"
+        android:dividerHeight="1dp"
+        android:listSelector="@drawable/list_row_selector"
+        android:layout_below="@+id/spinner_background" />
 
 </RelativeLayout>

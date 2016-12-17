@@ -22,4 +22,4 @@
     <item android:state_selected="true" android:color="?attr/colorControlActivated"/>
     <item android:state_checked="true" android:color="?attr/colorControlActivated"/>
     <item android:color="?attr/colorControlNormal"/>
-</selector><!-- From: file:/home/mwongela/Desktop/BetMoja/updateChecker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-beta1/res/color-v23/abc_tint_default.xml -->
+</selector>

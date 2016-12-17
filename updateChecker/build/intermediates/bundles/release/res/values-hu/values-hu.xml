@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/home/mwongela/Desktop/BetMoja/updateChecker/src/main/res/values-hu/strings.xml -->
-    <eat-comment/>
     <string name="dialogNegativeButton">Nem, köszönöm</string>
     <string name="dialogNeutralButton">Később</string>
     <string name="dialogPositiveButton">Frissítem</string>

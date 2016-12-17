@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/home/mwongela/Desktop/BetMoja/updateChecker/src/main/res/values-ko/strings.xml -->
-    <eat-comment/>
     <string name="dialogNegativeButton">아니오</string>
     <string name="dialogNeutralButton">나중에</string>
     <string name="dialogPositiveButton">네</string>

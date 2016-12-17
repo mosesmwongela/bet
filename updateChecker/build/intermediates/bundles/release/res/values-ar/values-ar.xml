@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/home/mwongela/Desktop/BetMoja/updateChecker/src/main/res/values-ar/strings.xml -->
-    <eat-comment/>
     <string name="amazonStore">متجر أمازون للتطبيقات</string>
     <string name="dialogNegativeButton">لا,شكرا</string>
     <string name="dialogNeutralButton">لاحقا</string>

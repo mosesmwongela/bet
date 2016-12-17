@@ -2,4 +2,9 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="home_away">12dp</dimen>
+    <dimen name="prediction_odd">11dip</dimen>
+    <dimen name="date_kick_off">11dip</dimen>
+    <dimen name="result">12dip</dimen>
 </resources>

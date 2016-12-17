@@ -21,4 +21,4 @@
           app:alpha="?android:attr/disabledAlpha"
           android:color="?android:attr/textColorSecondary"/>
     <item android:color="?attr/colorAccent"/>
-</selector><!-- From: file:/home/mwongela/Desktop/BetMoja/updateChecker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-beta1/res/color/abc_btn_colored_borderless_text_material.xml -->
+</selector>

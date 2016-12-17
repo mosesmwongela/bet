@@ -23,7 +23,7 @@ public class DBHelper {
     public static final String KEY_KICK_OFF = "kick_off";
     public static final String KEY_ODD = "odd";
     public static final String KEY_PREDICTION = "prediction";
-    public static final String KEY_SCORE = "result";
+    public static final String KEY_SCORE = "score";
     public static final String KEY_RESULT = "result";
     public static final String KEY_BOUGHT = "bought";
 

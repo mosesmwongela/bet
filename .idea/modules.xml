@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/BetMoja.iml" filepath="$PROJECT_DIR$/BetMoja.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bet-moja.iml" filepath="$PROJECT_DIR$/bet-moja.iml" />
       <module fileurl="file://$PROJECT_DIR$/updateChecker/updateChecker.iml" filepath="$PROJECT_DIR$/updateChecker/updateChecker.iml" />
     </modules>
   </component>
