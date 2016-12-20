@@ -11,5 +11,7 @@
     <string name="username">Username:\t\t\t</string>
     <string name="phonenumber">Phone number:\t</string>
     <string name="accountbalance">Account balance:\t</string>
+    <string name="not_yet_implemented">not yet implemented</string>
+    <string name="till_number">123456</string>
 
 </resources>
