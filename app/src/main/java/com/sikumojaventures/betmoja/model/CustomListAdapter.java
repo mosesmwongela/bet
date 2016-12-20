@@ -23,7 +23,8 @@ public class CustomListAdapter extends BaseAdapter {
     private Activity activity;
     private LayoutInflater inflater;
     private List<Tip> tipItems;
-    ImageLoader imageLoader = AppController.getInstance().getImageLoader();
+    private ImageLoader imageLoader = AppController.getInstance().getImageLoader();
+    private String TAG = "CustomListAdapter";
 
     public CustomListAdapter(Activity activity, List<Tip> tipItems) {
         this.activity = activity;
@@ -69,11 +70,29 @@ public class CustomListAdapter extends BaseAdapter {
 
         home_away.setText(m.getHome_team() +" vs "+m.getAway_team());
 
-        date_kick_off.setText(m.getKick_off()+", "+m.getDate());
+        date_kick_off.setText("Kick off: "+m.getKick_off());
 
-        prediction_odd.setText(m.getPrediction()+", "+m.getOdd());
+        if(!m.getScore().equalsIgnoreCase("-1")){
+            date_kick_off.setText("Kick off: " + m.getKick_off() + " [Score: " + m.getScore()+"]");
+            if(m.getResult().equalsIgnoreCase("1")) {
+                result.setText("Won");
+                result.setTextColor(convertView.getResources().getColor(R.color.won));
+            }else if(m.getResult().equalsIgnoreCase("0")) {
+                result.setText("Lost");
+                result.setTextColor(convertView.getResources().getColor(R.color.lost));
+            }
+        }else{
+            if (m.getOnsale().equalsIgnoreCase("1") && m.getBought().equalsIgnoreCase("0")) {
+                result.setText("Buy Tip");
+                result.setTextColor(convertView.getResources().getColor(R.color.buy_tip));
+            }
+        }
 
-        result.setText(m.getResult());
+        if(m.getOnsale().equalsIgnoreCase("1")&&m.getBought().equalsIgnoreCase("0")&&m.getScore().equalsIgnoreCase("-1")) {
+            prediction_odd.setText("Prediction: LOCKED [Odd:" + m.getOdd()+"]");
+        }else{
+            prediction_odd.setText("Prediction: " + m.getPrediction() + "  [Odd:" + m.getOdd()+"]");
+        }
 
         return convertView;
     }

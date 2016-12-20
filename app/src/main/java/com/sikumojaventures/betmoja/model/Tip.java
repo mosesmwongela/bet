@@ -6,12 +6,20 @@ package com.sikumojaventures.betmoja.model;
 
 public class Tip {
 
-    private String tip_id, home_team, away_team, date, kick_off, odd, prediction, score, result, bought, image;
+    private String tip_id, home_team, away_team, date, kick_off, odd, prediction, score, result, bought, image, onsale;
 
     public Tip() {
     }
 
-    public Tip(String tip_id, String home_team, String away_team, String date, String kick_off, String odd, String prediction, String score, String result, String bought, String image) {
+    public String getOnsale() {
+        return onsale;
+    }
+
+    public void setOnsale(String onsale) {
+        this.onsale = onsale;
+    }
+
+    public Tip(String tip_id, String home_team, String away_team, String date, String kick_off, String odd, String prediction, String score, String result, String bought, String image, String onsale) {
         this.tip_id = tip_id;
         this.home_team = home_team;
         this.away_team = away_team;
@@ -23,9 +31,11 @@ public class Tip {
         this.result = result;
         this.bought = bought;
         this.image = image;
+
+        this.onsale = onsale;
     }
 
-    public String getTip_id(String tip_id) {
+    public String getTip_id() {
         return this.tip_id;
     }
 

@@ -11,4 +11,8 @@
 
     <color name="spinner_border">#666666</color>
 
+    <color name="lost">#FF7F50</color>
+    <color name="won">#006400</color>
+    <color name="buy_tip">#00008B</color>
+
 </resources>

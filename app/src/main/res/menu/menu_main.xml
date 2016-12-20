@@ -8,4 +8,9 @@
         app:showAsAction="always"
         android:icon="@mipmap/ic_account_card_details"/>
 
+    <item android:id="@+id/action_refresh" android:title="@string/action_refresh"
+    android:orderInCategory="100"
+    app:showAsAction="always"
+    android:icon="@mipmap/ic_refresh"/>
+
 </menu>

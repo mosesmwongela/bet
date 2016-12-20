@@ -39,7 +39,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/date_kick_off"
-        android:layout_marginTop="5dp"
         android:layout_toRightOf="@+id/thumbnail"
         android:textColor="@color/date_kick_off"
         android:textSize="@dimen/prediction_odd" />
@@ -52,6 +51,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:textColor="@color/result"
-        android:textSize="@dimen/result" />
+        android:textSize="@dimen/result"
+        android:textStyle="bold"/>
 
 </RelativeLayout>

@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sk\\values-sk.xml",
+        "outputFile": "/home/mwongela/Desktop/BetMoja/updateChecker/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sk/values-sk.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 157
                 },
                 "from": {
-                    "file": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "file": "/home/mwongela/Desktop/BetMoja/updateChecker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-beta1/res/values-sk/values-sk.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -30,7 +30,7 @@
                     "endOffset": 265
                 },
                 "from": {
-                    "file": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "file": "/home/mwongela/Desktop/BetMoja/updateChecker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-beta1/res/values-sk/values-sk.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -49,7 +49,7 @@
                     "endOffset": 388
                 },
                 "from": {
-                    "file": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "file": "/home/mwongela/Desktop/BetMoja/updateChecker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-beta1/res/values-sk/values-sk.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -68,7 +68,7 @@
                     "endOffset": 488
                 },
                 "from": {
-                    "file": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "file": "/home/mwongela/Desktop/BetMoja/updateChecker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-beta1/res/values-sk/values-sk.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -87,7 +87,7 @@
                     "endOffset": 599
                 },
                 "from": {
-                    "file": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "file": "/home/mwongela/Desktop/BetMoja/updateChecker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-beta1/res/values-sk/values-sk.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -106,7 +106,7 @@
                     "endOffset": 685
                 },
                 "from": {
-                    "file": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "file": "/home/mwongela/Desktop/BetMoja/updateChecker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-beta1/res/values-sk/values-sk.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -125,7 +125,7 @@
                     "endOffset": 793
                 },
                 "from": {
-                    "file": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "file": "/home/mwongela/Desktop/BetMoja/updateChecker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-beta1/res/values-sk/values-sk.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -144,7 +144,7 @@
                     "endOffset": 911
                 },
                 "from": {
-                    "file": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "file": "/home/mwongela/Desktop/BetMoja/updateChecker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-beta1/res/values-sk/values-sk.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -163,7 +163,7 @@
                     "endOffset": 989
                 },
                 "from": {
-                    "file": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "file": "/home/mwongela/Desktop/BetMoja/updateChecker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-beta1/res/values-sk/values-sk.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -182,7 +182,7 @@
                     "endOffset": 1067
                 },
                 "from": {
-                    "file": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "file": "/home/mwongela/Desktop/BetMoja/updateChecker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-beta1/res/values-sk/values-sk.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
@@ -201,7 +201,7 @@
                     "endOffset": 1151
                 },
                 "from": {
-                    "file": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "file": "/home/mwongela/Desktop/BetMoja/updateChecker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-beta1/res/values-sk/values-sk.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
@@ -220,7 +220,7 @@
                     "endOffset": 1256
                 },
                 "from": {
-                    "file": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "file": "/home/mwongela/Desktop/BetMoja/updateChecker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-beta1/res/values-sk/values-sk.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
@@ -239,7 +239,7 @@
                     "endOffset": 1365
                 },
                 "from": {
-                    "file": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "file": "/home/mwongela/Desktop/BetMoja/updateChecker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-beta1/res/values-sk/values-sk.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
@@ -258,7 +258,7 @@
                     "endOffset": 1464
                 },
                 "from": {
-                    "file": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "file": "/home/mwongela/Desktop/BetMoja/updateChecker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-beta1/res/values-sk/values-sk.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
@@ -277,7 +277,7 @@
                     "endOffset": 1570
                 },
                 "from": {
-                    "file": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "file": "/home/mwongela/Desktop/BetMoja/updateChecker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-beta1/res/values-sk/values-sk.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
@@ -296,7 +296,7 @@
                     "endOffset": 1681
                 },
                 "from": {
-                    "file": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "file": "/home/mwongela/Desktop/BetMoja/updateChecker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-beta1/res/values-sk/values-sk.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
@@ -315,7 +315,7 @@
                     "endOffset": 1790
                 },
                 "from": {
-                    "file": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "file": "/home/mwongela/Desktop/BetMoja/updateChecker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-beta1/res/values-sk/values-sk.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
@@ -334,7 +334,7 @@
                     "endOffset": 1914
                 },
                 "from": {
-                    "file": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "file": "/home/mwongela/Desktop/BetMoja/updateChecker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-beta1/res/values-sk/values-sk.xml",
                     "position": {
                         "startLine": 19,
                         "startColumn": 4,
@@ -353,7 +353,7 @@
                     "endOffset": 2012
                 },
                 "from": {
-                    "file": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "file": "/home/mwongela/Desktop/BetMoja/updateChecker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-beta1/res/values-sk/values-sk.xml",
                     "position": {
                         "startLine": 20,
                         "startColumn": 4,
@@ -372,7 +372,487 @@
                     "endOffset": 2072
                 },
                 "from": {
-                    "file": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\src\\main\\res\\values-sk\\strings.xml",
+                    "file": "/home/mwongela/Desktop/BetMoja/updateChecker/src/main/res/values-sk/strings.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 268,
+                        "endColumn": 59,
+                        "endOffset": 323
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 22,
+                    "startColumn": 4,
+                    "startOffset": 2077,
+                    "endColumn": 54,
+                    "endOffset": 2127
+                },
+                "from": {
+                    "file": "/home/mwongela/Desktop/BetMoja/updateChecker/src/main/res/values-sk/strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 213,
+                        "endColumn": 54,
+                        "endOffset": 263
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 2132,
+                    "endColumn": 51,
+                    "endOffset": 2179
+                },
+                "from": {
+                    "file": "/home/mwongela/Desktop/BetMoja/updateChecker/src/main/res/values-sk/strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 161,
+                        "endColumn": 51,
+                        "endOffset": 208
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 24,
+                    "startColumn": 4,
+                    "startOffset": 2184,
+                    "endColumn": 105,
+                    "endOffset": 2285
+                },
+                "from": {
+                    "file": "/home/mwongela/Desktop/BetMoja/updateChecker/src/main/res/values-sk/strings.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 105,
+                        "endOffset": 156
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 25,
+                    "startColumn": 4,
+                    "startOffset": 2290,
+                    "endColumn": 72,
+                    "endOffset": 2358
+                },
+                "from": {
+                    "file": "/home/mwongela/Desktop/BetMoja/updateChecker/src/main/res/values-sk/strings.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 328,
+                        "endColumn": 72,
+                        "endOffset": 396
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 26,
+                    "startColumn": 4,
+                    "startOffset": 2363,
+                    "endColumn": 100,
+                    "endOffset": 2459
+                },
+                "from": {
+                    "file": "/home/mwongela/Desktop/BetMoja/updateChecker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-beta1/res/values-sk/values-sk.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 2017,
+                        "endColumn": 100,
+                        "endOffset": 2113
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "/home/mwongela/Desktop/BetMoja/E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sk\\values-sk.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 106,
+                    "endOffset": 157
+                },
+                "from": {
+                    "file": "/home/mwongela/Desktop/BetMoja/E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 106,
+                        "endOffset": 157
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 162,
+                    "endColumn": 107,
+                    "endOffset": 265
+                },
+                "from": {
+                    "file": "/home/mwongela/Desktop/BetMoja/E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 162,
+                        "endColumn": 107,
+                        "endOffset": 265
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 270,
+                    "endColumn": 122,
+                    "endOffset": 388
+                },
+                "from": {
+                    "file": "/home/mwongela/Desktop/BetMoja/E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 270,
+                        "endColumn": 122,
+                        "endOffset": 388
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 393,
+                    "endColumn": 99,
+                    "endOffset": 488
+                },
+                "from": {
+                    "file": "/home/mwongela/Desktop/BetMoja/E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 393,
+                        "endColumn": 99,
+                        "endOffset": 488
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 493,
+                    "endColumn": 110,
+                    "endOffset": 599
+                },
+                "from": {
+                    "file": "/home/mwongela/Desktop/BetMoja/E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 493,
+                        "endColumn": 110,
+                        "endOffset": 599
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 604,
+                    "endColumn": 85,
+                    "endOffset": 685
+                },
+                "from": {
+                    "file": "/home/mwongela/Desktop/BetMoja/E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 604,
+                        "endColumn": 85,
+                        "endOffset": 685
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 690,
+                    "endColumn": 107,
+                    "endOffset": 793
+                },
+                "from": {
+                    "file": "/home/mwongela/Desktop/BetMoja/E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 690,
+                        "endColumn": 107,
+                        "endOffset": 793
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 798,
+                    "endColumn": 117,
+                    "endOffset": 911
+                },
+                "from": {
+                    "file": "/home/mwongela/Desktop/BetMoja/E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 798,
+                        "endColumn": 117,
+                        "endOffset": 911
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 916,
+                    "endColumn": 77,
+                    "endOffset": 989
+                },
+                "from": {
+                    "file": "/home/mwongela/Desktop/BetMoja/E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 916,
+                        "endColumn": 77,
+                        "endOffset": 989
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 994,
+                    "endColumn": 77,
+                    "endOffset": 1067
+                },
+                "from": {
+                    "file": "/home/mwongela/Desktop/BetMoja/E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 994,
+                        "endColumn": 77,
+                        "endOffset": 1067
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 1072,
+                    "endColumn": 83,
+                    "endOffset": 1151
+                },
+                "from": {
+                    "file": "/home/mwongela/Desktop/BetMoja/E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 1072,
+                        "endColumn": 83,
+                        "endOffset": 1151
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 1156,
+                    "endColumn": 104,
+                    "endOffset": 1256
+                },
+                "from": {
+                    "file": "/home/mwongela/Desktop/BetMoja/E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 1156,
+                        "endColumn": 104,
+                        "endOffset": 1256
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 1261,
+                    "endColumn": 108,
+                    "endOffset": 1365
+                },
+                "from": {
+                    "file": "/home/mwongela/Desktop/BetMoja/E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 1261,
+                        "endColumn": 108,
+                        "endOffset": 1365
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 1370,
+                    "endColumn": 98,
+                    "endOffset": 1464
+                },
+                "from": {
+                    "file": "/home/mwongela/Desktop/BetMoja/E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 1370,
+                        "endColumn": 98,
+                        "endOffset": 1464
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 1469,
+                    "endColumn": 105,
+                    "endOffset": 1570
+                },
+                "from": {
+                    "file": "/home/mwongela/Desktop/BetMoja/E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 1469,
+                        "endColumn": 105,
+                        "endOffset": 1570
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 1575,
+                    "endColumn": 110,
+                    "endOffset": 1681
+                },
+                "from": {
+                    "file": "/home/mwongela/Desktop/BetMoja/E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 1575,
+                        "endColumn": 110,
+                        "endOffset": 1681
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 1686,
+                    "endColumn": 108,
+                    "endOffset": 1790
+                },
+                "from": {
+                    "file": "/home/mwongela/Desktop/BetMoja/E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 1686,
+                        "endColumn": 108,
+                        "endOffset": 1790
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 1795,
+                    "endColumn": 123,
+                    "endOffset": 1914
+                },
+                "from": {
+                    "file": "/home/mwongela/Desktop/BetMoja/E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1795,
+                        "endColumn": 123,
+                        "endOffset": 1914
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 1919,
+                    "endColumn": 97,
+                    "endOffset": 2012
+                },
+                "from": {
+                    "file": "/home/mwongela/Desktop/BetMoja/E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1919,
+                        "endColumn": 97,
+                        "endOffset": 2012
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 2017,
+                    "endColumn": 59,
+                    "endOffset": 2072
+                },
+                "from": {
+                    "file": "/home/mwongela/Desktop/BetMoja/E:\\MOSES\\BM\\bet-moja\\updateChecker\\src\\main\\res\\values-sk\\strings.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -391,7 +871,7 @@
                     "endOffset": 2127
                 },
                 "from": {
-                    "file": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\src\\main\\res\\values-sk\\strings.xml",
+                    "file": "/home/mwongela/Desktop/BetMoja/E:\\MOSES\\BM\\bet-moja\\updateChecker\\src\\main\\res\\values-sk\\strings.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -410,7 +890,7 @@
                     "endOffset": 2179
                 },
                 "from": {
-                    "file": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\src\\main\\res\\values-sk\\strings.xml",
+                    "file": "/home/mwongela/Desktop/BetMoja/E:\\MOSES\\BM\\bet-moja\\updateChecker\\src\\main\\res\\values-sk\\strings.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -429,7 +909,7 @@
                     "endOffset": 2285
                 },
                 "from": {
-                    "file": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\src\\main\\res\\values-sk\\strings.xml",
+                    "file": "/home/mwongela/Desktop/BetMoja/E:\\MOSES\\BM\\bet-moja\\updateChecker\\src\\main\\res\\values-sk\\strings.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -448,7 +928,7 @@
                     "endOffset": 2358
                 },
                 "from": {
-                    "file": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\src\\main\\res\\values-sk\\strings.xml",
+                    "file": "/home/mwongela/Desktop/BetMoja/E:\\MOSES\\BM\\bet-moja\\updateChecker\\src\\main\\res\\values-sk\\strings.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -467,7 +947,7 @@
                     "endOffset": 2459
                 },
                 "from": {
-                    "file": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
+                    "file": "/home/mwongela/Desktop/BetMoja/E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\values-sk\\values-sk.xml",
                     "position": {
                         "startLine": 21,
                         "startColumn": 4,
