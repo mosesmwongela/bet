@@ -25,7 +25,6 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.rampo.updatechecker.UpdateChecker;
 import com.rampo.updatechecker.notice.Notice;
 import com.sikumojaventures.betmoja.app.AppController;
-import com.sikumojaventures.betmoja.auth.LoginActivity;
 import com.sikumojaventures.betmoja.db.UserSessionManager;
 import com.sikumojaventures.betmoja.model.CustomListAdapter;
 import com.sikumojaventures.betmoja.model.Dates;
@@ -79,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
         dateSpinner = (Spinner) findViewById(R.id.datespinner);
 
-        if(session.isUserLoggedIn()){
+       // if(session.isUserLoggedIn()){
             checkForUpdate();
 
             // this thread delays for 55ms(100 ms just to be safe) so that
@@ -97,13 +96,13 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        }else {
-            Intent i = new Intent(MainActivity.this, LoginActivity.class);
-            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(i);
-            finish();
-        }
+//        }else {
+//            Intent i = new Intent(MainActivity.this, LoginActivity.class);
+//            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            startActivity(i);
+//            finish();
+//        }
     }
 
     public void popoulateDateSpinner(List<Dates> dateList){
@@ -266,6 +265,11 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_account) {
+            Intent i = new Intent(MainActivity.this, AccountActivity.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(i);
+            finish();
             return true;
         }
 

@@ -5,4 +5,11 @@
     <string name="action_settings">Settings</string>
     <string name="action_account">My account</string>
     <string name="action_refresh">Refresh</string>
+
+    <string name="how_to_top_up"><b>How to top-up:\n</b>Send any amount to this <b>Till Number: 123456</b>. When you receive the M-Pesa confirmation message, send us the M-Pesa transaction code.</string>
+
+    <string name="username">Username:\t\t\t</string>
+    <string name="phonenumber">Phone number:\t</string>
+    <string name="accountbalance">Account balance:\t</string>
+
 </resources>
