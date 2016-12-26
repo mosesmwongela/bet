@@ -1,4 +1,4 @@
-package com.sikumojaventures.betmoja;
+package com.sikumojaventures.betmwitu;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

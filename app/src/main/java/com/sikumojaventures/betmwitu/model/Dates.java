@@ -1,4 +1,4 @@
-package com.sikumojaventures.betmoja.model;
+package com.sikumojaventures.betmwitu.model;
 
 /**
  * Created by turnkey on 12/17/2016.

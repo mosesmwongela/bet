@@ -1,4 +1,4 @@
-package com.sikumojaventures.betmoja.util;
+package com.sikumojaventures.betmwitu.util;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

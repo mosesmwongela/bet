@@ -1,4 +1,4 @@
-package com.sikumojaventures.betmoja;
+package com.sikumojaventures.betmwitu;
 
 import android.content.Context;
 import android.content.Intent;
@@ -24,12 +24,12 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.rampo.updatechecker.UpdateChecker;
 import com.rampo.updatechecker.notice.Notice;
-import com.sikumojaventures.betmoja.app.AppController;
-import com.sikumojaventures.betmoja.db.UserSessionManager;
-import com.sikumojaventures.betmoja.model.CustomListAdapter;
-import com.sikumojaventures.betmoja.model.Dates;
-import com.sikumojaventures.betmoja.model.Tip;
-import com.sikumojaventures.betmoja.util.ConnectionDetector;
+import com.sikumojaventures.betmwitu.app.AppController;
+import com.sikumojaventures.betmwitu.db.UserSessionManager;
+import com.sikumojaventures.betmwitu.model.CustomListAdapter;
+import com.sikumojaventures.betmwitu.model.Dates;
+import com.sikumojaventures.betmwitu.model.Tip;
+import com.sikumojaventures.betmwitu.util.ConnectionDetector;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -78,13 +78,11 @@ public class MainActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
         dateSpinner = (Spinner) findViewById(R.id.datespinner);
 
-        session.logFirstRun(true);
-
         if(session.isFirstRun()){
             Intent i = new Intent(MainActivity.this, IntroActivity.class);
             startActivity(i);
 
-           // session.logFirstRun(false);
+            session.logFirstRun(false);
         }
 
        // if(session.isUserLoggedIn()){

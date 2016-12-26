@@ -1,4 +1,4 @@
-package com.sikumojaventures.betmoja.model;
+package com.sikumojaventures.betmwitu.model;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
-import com.sikumojaventures.betmoja.R;
-import com.sikumojaventures.betmoja.app.AppController;
+import com.sikumojaventures.betmwitu.R;
+import com.sikumojaventures.betmwitu.app.AppController;
 
 import java.util.List;
 

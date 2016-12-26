@@ -1,4 +1,4 @@
-package com.sikumojaventures.betmoja.db;
+package com.sikumojaventures.betmwitu.db;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -40,7 +40,7 @@ public class UserSessionManager {
     }
 
     public boolean isFirstRun(){
-        return pref.getBoolean(KEY_FIRST_RUN, false);
+        return pref.getBoolean(KEY_FIRST_RUN, true);
     }
 
     public String getUserName(){

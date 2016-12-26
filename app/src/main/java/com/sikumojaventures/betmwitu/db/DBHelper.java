@@ -1,4 +1,4 @@
-package com.sikumojaventures.betmoja.db;
+package com.sikumojaventures.betmwitu.db;
 
 import android.content.ContentValues;
 import android.content.Context;

@@ -1,4 +1,4 @@
-package com.sikumojaventures.betmoja.util;
+package com.sikumojaventures.betmwitu.util;
 
 /**
  * Created by mwongela on 12/15/16.
