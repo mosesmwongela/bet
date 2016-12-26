@@ -5,11 +5,12 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:name=".app.AppController"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/my_logo"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
@@ -47,6 +48,13 @@
             android:windowSoftInputMode="adjustPan"
             android:screenOrientation="portrait">
         </activity>
+
+        <activity android:name=".IntroActivity"
+            android:theme="@style/AppIntroTheme"
+            android:label="@string/app_name"
+            android:configChanges="orientation"
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait" />
 
         <service
             android:name=".util.SystemAlertWindowService"

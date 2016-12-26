@@ -19,6 +19,8 @@ public class UserSessionManager {
     public static final String KEY_USER_NAME= "username";
     public static final String KEY_PHONE= "phone";
 
+    public static final String KEY_FIRST_RUN= "firstRun";
+
     public UserSessionManager(Context context){
         this._context = context;
         pref = _context.getSharedPreferences(PREFER_NAME, PRIVATE_MODE);
@@ -30,6 +32,15 @@ public class UserSessionManager {
         editor.putString(KEY_USER_NAME, phone);
         editor.putString(KEY_PHONE, phone);
         editor.commit();
+    }
+
+    public void logFirstRun(Boolean isFirstRun){
+        editor.putBoolean(KEY_FIRST_RUN, isFirstRun);
+        editor.commit();
+    }
+
+    public boolean isFirstRun(){
+        return pref.getBoolean(KEY_FIRST_RUN, false);
     }
 
     public String getUserName(){

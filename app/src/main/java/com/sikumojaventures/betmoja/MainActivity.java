@@ -78,6 +78,15 @@ public class MainActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
         dateSpinner = (Spinner) findViewById(R.id.datespinner);
 
+        session.logFirstRun(true);
+
+        if(session.isFirstRun()){
+            Intent i = new Intent(MainActivity.this, IntroActivity.class);
+            startActivity(i);
+
+           // session.logFirstRun(false);
+        }
+
        // if(session.isUserLoggedIn()){
             checkForUpdate();
 
@@ -282,24 +291,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void refreshAnim(){
-        MenuItem menuItem = mymenu.findItem(R.id.action_refresh);
-        LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        ImageView iv = (ImageView)inflater.inflate(R.layout.iv_refresh, null);
-        Animation rotation = AnimationUtils.loadAnimation(this, R.anim.rotation);
-        rotation.setRepeatCount(Animation.INFINITE);
-        iv.startAnimation(rotation);
-        menuItem.setActionView(iv);
-        DOING_REFRESH_ANIM = true;
+        try {
+            MenuItem menuItem = mymenu.findItem(R.id.action_refresh);
+            LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            ImageView iv = (ImageView) inflater.inflate(R.layout.iv_refresh, null);
+            Animation rotation = AnimationUtils.loadAnimation(this, R.anim.rotation);
+            rotation.setRepeatCount(Animation.INFINITE);
+            iv.startAnimation(rotation);
+            menuItem.setActionView(iv);
+            DOING_REFRESH_ANIM = true;
+        }catch(Exception e){
+            Log.e(TAG, "Shitty menu didnt finish loading");
+        }
     }
 
-    public void stopRefreshAnim()
-    {
-        MenuItem m = mymenu.findItem(R.id.action_refresh);
-        if(m.getActionView()!=null)
-        {
-            m.getActionView().clearAnimation();
-            m.setActionView(null);
-            DOING_REFRESH_ANIM = false;
+    public void stopRefreshAnim() {
+        try {
+            MenuItem m = mymenu.findItem(R.id.action_refresh);
+            if (m.getActionView() != null) {
+                m.getActionView().clearAnimation();
+                m.setActionView(null);
+                DOING_REFRESH_ANIM = false;
+            }
+        }catch(Exception e){
+            Log.e(TAG, "Shitty menu didnt finish loading");
         }
     }
 }

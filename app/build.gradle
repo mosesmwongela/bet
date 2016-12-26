@@ -25,4 +25,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.0.0-beta1'
     compile project(':updateChecker')
     compile 'com.android.volley:volley:1.0.0'
+    compile 'com.github.paolorotolo:appintro:4.1.0'
 }
