@@ -177,6 +177,8 @@ public class MainActivity extends AppCompatActivity {
 
                         JSONArray dates = null;
 
+                        dateList.clear();
+
                         try {
                              dates = response.getJSONArray("dates");
                             for (int i = 0; i < dates.length(); i++) {
