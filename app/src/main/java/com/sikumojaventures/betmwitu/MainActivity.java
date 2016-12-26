@@ -22,6 +22,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.rampo.updatechecker.UpdateChecker;
 import com.rampo.updatechecker.notice.Notice;
 import com.sikumojaventures.betmwitu.app.AppController;
@@ -36,9 +37,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -50,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     UserSessionManager session;
 
     private static final String url = "http://sikumojaventures.com/json/tips.json";
-    private static final String date_url = "http://sikumojaventures.com/json/dates.json";
+    private static final String date_url = "http://sikumojaventures.com/betmwitu/get_dates.php";
     private List<Tip> tipList = new ArrayList<Tip>();
     private List<Dates> dateList = new ArrayList<Dates>();
     private ListView listView;
@@ -116,10 +120,21 @@ public class MainActivity extends AppCompatActivity {
         List<String> spinnerDate =  new ArrayList<String>();
 
         DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-        String dateToday = df.format(Calendar.getInstance().getTime());
+        DateFormat df2 = new SimpleDateFormat("E dd, MMM");
+        String dateToday = df2.format(Calendar.getInstance().getTime());
 
         for(int i=0; i<dateList.size(); i++) {
-            spinnerDate.add(dateList.get(i).getDate());
+            Date startDate;
+            String newDateString = null;
+            try {
+                startDate = df.parse(dateList.get(i).getDate());
+                newDateString = df2.format(startDate);
+                System.out.println(newDateString);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            spinnerDate.add(newDateString);
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
@@ -150,30 +165,40 @@ public class MainActivity extends AppCompatActivity {
         if(!DOING_REFRESH_ANIM)
         refreshAnim();
 
-        JsonArrayRequest dateReq = new JsonArrayRequest(date_url,
-                new Response.Listener<JSONArray>() {
+        HashMap<String, String> params = new HashMap<String, String>();
+        params.put("date", "26-12-2016");
+
+        JsonObjectRequest dateReq = new JsonObjectRequest(date_url, new JSONObject(params),
+                new Response.Listener<JSONObject>() {
                     @Override
-                    public void onResponse(JSONArray response) {
+                    public void onResponse(JSONObject response) {
                         Log.d(TAG, response.toString());
                         stopRefreshAnim();
 
-                        // Parsing json
-                        for (int i = 0; i < response.length(); i++) {
-                            try {
+                        JSONArray dates = null;
 
-                                JSONObject obj = response.getJSONObject(i);
-                                Dates date = new Dates();
+                        try {
+                             dates = response.getJSONArray("dates");
+                            for (int i = 0; i < dates.length(); i++) {
+                                try {
+                                    JSONObject obj = dates.getJSONObject(i);
+                                    Dates date = new Dates();
 
-                                date.setDate(obj.getString("date"));
+                                    date.setDate(obj.getString("date"));
 
-                                dateList.add(date);
+                                    dateList.add(date);
 
-                            } catch (JSONException e) {
-                                e.printStackTrace();
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+                                popoulateDateSpinner(dateList);
                             }
-
-                            popoulateDateSpinner(dateList);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
+
+
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -282,6 +307,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (id == R.id.action_refresh) {
             loadTips();
+            loadDates();
             return true;
         }
 
