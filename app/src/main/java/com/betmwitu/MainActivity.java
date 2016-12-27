@@ -326,7 +326,11 @@ public class MainActivity extends AppCompatActivity {
         if (!dateToday.equals(null)) {
             int spinnerPosition = adapter.getPosition(dateToday);
             dateSpinner.setSelection(spinnerPosition);
-            dateParam = dateList_Orig.get(spinnerPosition).getDate();
+            try {
+                dateParam = dateList_Orig.get(spinnerPosition).getDate();
+            }catch(Exception e){
+                e.printStackTrace();
+            }
         }
     }
 
