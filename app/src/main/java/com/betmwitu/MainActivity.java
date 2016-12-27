@@ -5,14 +5,20 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -58,17 +64,22 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
+import mehdi.sakout.aboutpage.AboutPage;
+import mehdi.sakout.aboutpage.Element;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String tip_url = "http://www.sikumojaventures.com/betmwitu/get_tips.php";
     private static final String date_url = "http://sikumojaventures.com/betmwitu/get_dates.php";
     private static final String buytip_url = "http://sikumojaventures.com/betmwitu/buytip.php";
+    private static final String lastseen_url = "http://sikumojaventures.com/betmwitu/lastseen.php";
     ConnectionDetector cd;
     UserSessionManager session;
     //date to query tips
     String dateParam;
     JSONParser jsonParser = new JSONParser();
+    boolean doubleBackToExitPressedOnce = false;
     private String TAG = "MainActivity";
     private List<Tip> tipList = new ArrayList<Tip>();
     private List<Dates> dateList = new ArrayList<Dates>();
@@ -79,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
     private Boolean DOING_REFRESH_ANIM = false;
     private Menu mymenu;
     private ProgressDialog pDialog;
+    private String IMEI, MANUFACTURER, MODEL, ANDROID_VERSION, APP_VERSION;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +104,8 @@ public class MainActivity extends AppCompatActivity {
         adapter = new CustomListAdapter(this, tipList);
         listView.setAdapter(adapter);
         dateSpinner = (Spinner) findViewById(R.id.datespinner);
+
+        getPhoneDetails();
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -107,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
 
                 String result = tv_result.getText().toString();
 
-                if(result.equalsIgnoreCase("Share Tip")){
+                if (result.equalsIgnoreCase("Share Tip")) {
 
                     DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
                     DateFormat df2 = new SimpleDateFormat("E dd, MMM");
@@ -121,9 +135,9 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     String tip =
-                            tv_home_away.getText().toString() + "\n"+
-                                    newDateString+"\n"+
-                                    tv_date_kick_off.getText().toString() +"\n"+
+                            tv_home_away.getText().toString() + "\n" +
+                                    newDateString + "\n" +
+                                    tv_date_kick_off.getText().toString() + "\n" +
                                     tv_prediction_odd.getText().toString();
                     onShareClick(tip);
                 }
@@ -135,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
                         final String tip_price = tv_tip_price.getText().toString();
                         final String home_away = tv_home_away.getText().toString();
 
-                        if(Integer.parseInt(session.getAccountBalanceInt())>=Integer.parseInt(tip_price)) {
+                        if (Integer.parseInt(session.getAccountBalanceInt()) >= Integer.parseInt(tip_price)) {
 
                             AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
                             builder1.setTitle("Buy premium tip");
@@ -143,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
                             builder1.setCancelable(true);
                             builder1.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
-                                        new buyTip().execute(tip_id, tip_price, home_away);
+                                    new buyTip().execute(tip_id, tip_price, home_away);
                                 }
                             });
                             builder1.setNegativeButton("Later", new DialogInterface.OnClickListener() {
@@ -153,10 +167,10 @@ public class MainActivity extends AppCompatActivity {
                             });
                             AlertDialog alert11 = builder1.create();
                             alert11.show();
-                        }else{
+                        } else {
                             AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
                             builder1.setTitle("Insufficient account balance");
-                            builder1.setMessage("You need to top-up your account with ksh "+tip_price+" to be able to purchase this premium tip.");
+                            builder1.setMessage("You need to top-up your account with ksh " + tip_price + " to be able to purchase this premium tip.");
                             builder1.setCancelable(true);
                             builder1.setPositiveButton("Top up now", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
@@ -222,6 +236,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 if (cd.isConnectingToInternet()) {
                     getthemdata();
+                    new getDeviceLastSeen().execute();
                 } else {
                     AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
                     //   builder1.setTitle("You are not loged in");
@@ -245,60 +260,6 @@ public class MainActivity extends AppCompatActivity {
         }, 100);
     }
 
-    class buyTip extends AsyncTask<String, String, String> {
-        int success = 0;
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            pDialog = new ProgressDialog(MainActivity.this);
-            pDialog.setMessage("Processing transaction");
-            pDialog.setIndeterminate(false);
-            pDialog.setCancelable(true);
-            pDialog.show();
-        }
-
-        @Override
-        protected String doInBackground(String... args) {
-
-            try {
-
-                String tip_id = args[0];
-                String tip_price = args[1];
-                String home_away = args[2];
-
-                List<NameValuePair> params = new ArrayList<NameValuePair>();
-                params.add(new BasicNameValuePair("tip_id", tip_id));
-                params.add(new BasicNameValuePair("tip_price", tip_price));
-                params.add(new BasicNameValuePair("home_away", home_away));
-                params.add(new BasicNameValuePair("phone", session.getPhone()));
-
-                JSONObject json = jsonParser.makeHttpRequest(buytip_url, "POST", params);
-
-                success = json.getInt(Config.TAG_SUCCESS);
-                if (success == 1) {
-                    String account_balance = json.getString("account_balance");
-                    session.updateAccountBalance(account_balance);
-                }
-                return json.getString(Config.TAG_MESSAGE);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        protected void onPostExecute(String file_url) {
-            pDialog.dismiss();
-            if (file_url != null) {
-                Toast.makeText(MainActivity.this, file_url, Toast.LENGTH_LONG).show();
-            }
-
-            if(success==1){
-                new getTips().execute();
-            }
-
-        }
-    }
-
     public void getthemdata() {
         if (cd.isConnectingToInternet()) {
             loadDates();
@@ -317,7 +278,7 @@ public class MainActivity extends AppCompatActivity {
             builder1.setNegativeButton("Close app", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     finish();
-            }
+                }
             });
             AlertDialog alert11 = builder1.create();
             alert11.show();
@@ -357,6 +318,7 @@ public class MainActivity extends AppCompatActivity {
                 dateParam = dateList_Orig.get(item).getDate();
                 browseTips();
             }
+
             public void onNothingSelected(AdapterView<?> arg0) {
             }
         });
@@ -368,7 +330,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void browseTips(){
+    public void browseTips() {
         if (cd.isConnectingToInternet()) {
             new getTips().execute();
         } else {
@@ -581,7 +543,68 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
 
+        if (id == R.id.action_about) {
+            try {
+                aboutUs();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
+    }
+
+    public void aboutUs() {
+
+        PackageInfo pInfo = null;
+        try {
+            pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        String version = pInfo.versionName;
+
+        Element adsElement = new Element();
+        //  adsElement.setTitle("Contact Us");
+
+        View aboutPage = new AboutPage(this)
+                .isRTL(false)
+                .setDescription("BET MWITU")
+                // .setImage(R.mipmap.ic_launcher)
+                .addItem(new Element().setTitle(version))
+                .addItem(adsElement)
+                .addGroup("Connect with us")
+                .addEmail("betmwitu@gmail.com")
+                // .addWebsite("http://www.sikumojaventures.com/")
+                //  .addFacebook("www.facebook.com/betmwitu")
+                .addTwitter("@betmwitu")
+                .addPlayStore("com.betmwitu")
+                .addItem(getCopyRightsElement())
+                .create();
+
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        dialogBuilder.setCancelable(true);
+        dialogBuilder.setView(aboutPage);
+        AlertDialog alertDialog = dialogBuilder.create();
+        alertDialog.show();
+    }
+
+    Element getCopyRightsElement() {
+        Element copyRightsElement = new Element();
+        final String copyrights = String.format(getString(R.string.copy_right), Calendar.getInstance().get(Calendar.YEAR));
+        copyRightsElement.setTitle(copyrights);
+        //   copyRightsElement.setIcon(R.drawable.about_icon_copy_right);
+        copyRightsElement.setColor(ContextCompat.getColor(this, mehdi.sakout.aboutpage.R.color.about_item_icon_color));
+        copyRightsElement.setGravity(Gravity.CENTER);
+        copyRightsElement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, copyrights, Toast.LENGTH_SHORT).show();
+            }
+        });
+        return copyRightsElement;
     }
 
     public void refreshAnim() {
@@ -652,6 +675,132 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 System.out.println("Do not Have Intent");
             }
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click back again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce = false;
+            }
+        }, 2000);
+    }
+
+    public void getPhoneDetails(){
+        TelephonyManager telephonyManager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
+        IMEI = telephonyManager.getDeviceId();
+
+        MODEL = android.os.Build.MODEL;
+        MANUFACTURER = android.os.Build.MANUFACTURER;
+        ANDROID_VERSION = ""+Build.VERSION.RELEASE;
+        PackageInfo pInfo = null;
+        try {
+            pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        APP_VERSION = pInfo.versionName;
+    }
+
+    class getDeviceLastSeen extends AsyncTask<String, String, String> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(String... args) {
+            try {
+
+                SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
+                String last_seen = s.format(new Date());
+
+                List<NameValuePair> params = new ArrayList<NameValuePair>();
+                params.add(new BasicNameValuePair("imei", IMEI));
+                params.add(new BasicNameValuePair("manufacturer", MANUFACTURER));
+                params.add(new BasicNameValuePair("model", MODEL));
+                params.add(new BasicNameValuePair("android_version", ANDROID_VERSION));
+                params.add(new BasicNameValuePair("app_version", APP_VERSION));
+                params.add(new BasicNameValuePair("user_phone", session.getPhone()));
+                params.add(new BasicNameValuePair("last_seen", last_seen));
+
+                JSONObject json = jsonParser.makeHttpRequest(lastseen_url, "POST", params);
+
+                return null;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        protected void onPostExecute(String file_url) {
+        }
+    }
+
+    class buyTip extends AsyncTask<String, String, String> {
+        int success = 0;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pDialog = new ProgressDialog(MainActivity.this);
+            pDialog.setMessage("Processing transaction");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(true);
+            pDialog.show();
+        }
+
+        @Override
+        protected String doInBackground(String... args) {
+
+            try {
+
+                String tip_id = args[0];
+                String tip_price = args[1];
+                String home_away = args[2];
+
+                List<NameValuePair> params = new ArrayList<NameValuePair>();
+                params.add(new BasicNameValuePair("tip_id", tip_id));
+                params.add(new BasicNameValuePair("tip_price", tip_price));
+                params.add(new BasicNameValuePair("home_away", home_away));
+                params.add(new BasicNameValuePair("phone", session.getPhone()));
+
+                JSONObject json = jsonParser.makeHttpRequest(buytip_url, "POST", params);
+
+                success = json.getInt(Config.TAG_SUCCESS);
+                if (success == 1) {
+                    String account_balance = json.getString("account_balance");
+                    session.updateAccountBalance(account_balance);
+                }
+                return json.getString(Config.TAG_MESSAGE);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        protected void onPostExecute(String file_url) {
+            pDialog.dismiss();
+            if (file_url != null) {
+                Toast.makeText(MainActivity.this, file_url, Toast.LENGTH_LONG).show();
+            }
+
+            if (success == 1) {
+                new getTips().execute();
+            }
+
         }
     }
 

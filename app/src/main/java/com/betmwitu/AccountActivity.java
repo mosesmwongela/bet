@@ -4,11 +4,16 @@ import android.app.ActivityManager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -38,7 +43,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+
+import mehdi.sakout.aboutpage.AboutPage;
+import mehdi.sakout.aboutpage.Element;
 
 /**
  * Created by turnkey on 12/17/2016.
@@ -269,6 +278,16 @@ public class AccountActivity extends AppCompatActivity {
             }
             return true;
         }
+
+        if (id == R.id.action_about) {
+            try {
+                aboutUs();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -396,5 +415,55 @@ public class AccountActivity extends AppCompatActivity {
         }
     }
 
+    public void aboutUs(){
 
+        PackageInfo pInfo = null;
+        try {
+            pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        String version = pInfo.versionName;
+
+        Element adsElement = new Element();
+        //  adsElement.setTitle("Contact Us");
+
+        View aboutPage = new AboutPage(this)
+                .isRTL(false)
+                .setDescription("BET MWITU")
+                // .setImage(R.mipmap.ic_launcher)
+                .addItem(new Element().setTitle(version))
+                .addItem(adsElement)
+                .addGroup("Connect with us")
+                .addEmail("betmwitu@gmail.com")
+                // .addWebsite("http://www.sikumojaventures.com/")
+               // .addFacebook("www.facebook.com/betmwitu")
+                .addTwitter("@betmwitu")
+                .addPlayStore("com.betmwitu")
+                .addItem(getCopyRightsElement())
+                .create();
+
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        dialogBuilder.setCancelable(true);
+        dialogBuilder.setView(aboutPage);
+        AlertDialog alertDialog = dialogBuilder.create();
+        alertDialog.show();
+    }
+
+    Element getCopyRightsElement() {
+        Element copyRightsElement = new Element();
+        final String copyrights = String.format(getString(R.string.copy_right), Calendar.getInstance().get(Calendar.YEAR));
+        copyRightsElement.setTitle(copyrights);
+        //   copyRightsElement.setIcon(R.drawable.about_icon_copy_right);
+        copyRightsElement.setColor(ContextCompat.getColor(this, mehdi.sakout.aboutpage.R.color.about_item_icon_color));
+        copyRightsElement.setGravity(Gravity.CENTER);
+        copyRightsElement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(AccountActivity.this, copyrights, Toast.LENGTH_SHORT).show();
+            }
+        });
+        return copyRightsElement;
+    }
 }

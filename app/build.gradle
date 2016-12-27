@@ -10,7 +10,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 23
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.Beta"
     }
     buildTypes {
         release {
@@ -26,4 +26,5 @@ dependencies {
     compile project(':updateChecker')
     compile 'com.android.volley:volley:1.0.0'
     compile 'com.github.paolorotolo:appintro:4.1.0'
+    compile 'com.github.medyo:android-about-page:1.1.1'
 }
