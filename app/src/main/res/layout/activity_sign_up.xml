@@ -2,22 +2,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".SignUpActivity"
-    android:background="#ffffff">
+    tools:context=".auth.SignUpActivity">
 
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:orientation="vertical"
         android:padding="10dp"
         >
 
@@ -25,59 +25,59 @@
             android:id="@+id/etTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:layout_marginTop="-2dp"
-            android:padding="10dp"
-            android:textColorHint="#bbbbbb"
-            android:text="Create a Bet Moja account"
-            android:gravity="center" />
+            android:gravity="left"
+            android:text="Create a Bet Mwitu account"
+            android:textColorHint="#bbbbbb" />
 
         <EditText
             android:id="@+id/etFullName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/edittext_default_bg"
             android:layout_marginTop="-2dp"
-            android:padding="10dp"
+            android:background="@drawable/edittext_top_bg"
+            android:drawableLeft="@mipmap/ic_action_person"
             android:hint="Full Name"
             android:inputType="textCapWords"
-            android:textColorHint="#bbbbbb"
             android:maxLength="25"
-            android:drawableLeft="@mipmap/ic_action_person"/>
+            android:padding="8dp"
+            android:textColorHint="#bbbbbb" />
 
         <EditText
             android:id="@+id/etPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:background="@drawable/edittext_top_bg"
-            android:padding="10dp"
+            android:drawableLeft="@mipmap/ic_action_phone"
             android:hint="Phone number"
             android:maxLength="10"
+            android:padding="8dp"
             android:phoneNumber="true"
-            android:textColorHint="#bbbbbb"
-            android:drawableLeft="@mipmap/ic_action_phone"/>
+            android:textColorHint="#bbbbbb" />
 
         <EditText
             android:id="@+id/etPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:background="@drawable/edittext_top_bg"
-            android:padding="10dp"
+            android:drawableLeft="@mipmap/ic_action_pass"
             android:hint="Create Password"
             android:maxLength="20"
+            android:padding="8dp"
             android:password="true"
-            android:textColorHint="#bbbbbb"
-            android:drawableLeft="@mipmap/ic_action_pass"/>
+            android:textColorHint="#bbbbbb" />
 
 
         <Button
             android:id="@+id/btnSingUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
             android:layout_margin="4dp"
+            android:padding="8dp"
             android:text="Create Account"
-            style="@style/DefaultButtonText"
-            android:background="@drawable/button_default_bg"
             />
 
         <TextView
@@ -85,20 +85,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="-2dp"
+            android:gravity="center"
             android:padding="10dp"
-            android:textColorHint="#bbbbbb"
             android:text="Already have an account?"
-            android:gravity="center" />
+            android:textColorHint="#bbbbbb" />
 
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
             android:layout_margin="4dp"
+            android:padding="8dp"
             android:text="Login"
-            style="@style/DefaultButtonText"
-            android:background="@drawable/button_default_bg"
             />
 
     </LinearLayout>

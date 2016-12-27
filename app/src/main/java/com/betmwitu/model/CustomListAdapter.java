@@ -63,8 +63,16 @@ public class CustomListAdapter extends BaseAdapter {
         TextView date_kick_off = (TextView) convertView.findViewById(R.id.date_kick_off);
         TextView prediction_odd = (TextView) convertView.findViewById(R.id.prediction_odd);
         TextView result = (TextView) convertView.findViewById(R.id.result);
+        TextView tip_id = (TextView) convertView.findViewById(R.id.tip_id);
+        TextView tip_price = (TextView) convertView.findViewById(R.id.tip_price);
 
         Tip m = tipItems.get(position);
+
+        tip_id.setText(m.getTip_id());
+        tip_id.setVisibility(View.GONE);
+
+        tip_price.setText(m.getPrice());
+        tip_price.setVisibility(View.GONE);
 
         thumbNail.setImageUrl(m.getImage(), imageLoader);
 

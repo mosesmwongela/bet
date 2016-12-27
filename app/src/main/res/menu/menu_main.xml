@@ -3,14 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
 
 
-    <item android:id="@+id/action_account" android:title="@string/action_account"
+    <item
+        android:id="@+id/action_account"
+        android:icon="@mipmap/ic_account_card_details"
         android:orderInCategory="100"
-        app:showAsAction="always"
-        android:icon="@mipmap/ic_account_card_details"/>
+        android:title="@string/action_account"
+        app:showAsAction="always" />
 
-    <item android:id="@+id/action_refresh" android:title="@string/action_refresh"
+    <item
+        android:id="@+id/action_refresh"
+        android:icon="@mipmap/ic_refresh"
     android:orderInCategory="100"
-    app:showAsAction="always"
-    android:icon="@mipmap/ic_refresh"/>
+        android:title="@string/action_refresh"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_logout"
+        android:orderInCategory="100"
+        android:title="@string/action_logout"
+        app:showAsAction="never" />
 
 </menu>

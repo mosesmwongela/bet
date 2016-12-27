@@ -36,7 +36,7 @@ public class SystemAlertWindowService extends Service {
     @Override
     public void onStart(Intent intent, int startId) {
         try {
-            String tillNumber = "Till number: 123456";
+            String tillNumber = "Till number: 560921";
             WindowManager.LayoutParams params = new WindowManager.LayoutParams(
                     300, //width
                     68, //height

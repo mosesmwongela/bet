@@ -2,12 +2,14 @@ package com.betmwitu;
 
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -29,6 +31,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.betmwitu.app.AppController;
+import com.betmwitu.auth.LoginActivity;
 import com.betmwitu.db.UserSessionManager;
 import com.betmwitu.model.CustomListAdapter;
 import com.betmwitu.model.Dates;
@@ -93,6 +96,8 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 TextView tv_result = (TextView) view.findViewById(R.id.result);
+                TextView tv_tip_id = (TextView) view.findViewById(R.id.tip_id);
+                TextView tv_tip_price = (TextView) view.findViewById(R.id.tip_price);
                 TextView tv_home_away = (TextView) view.findViewById(R.id.home_away);
                 TextView tv_prediction_odd = (TextView) view.findViewById(R.id.prediction_odd);
                 TextView tv_date_kick_off = (TextView) view.findViewById(R.id.date_kick_off);
@@ -120,7 +125,36 @@ public class MainActivity extends AppCompatActivity {
                     onShareClick(tip);
                 }
 
+                if (result.equalsIgnoreCase("Buy Tip")) {
 
+                    if (session.isUserLoggedIn()) {
+                        String tip_id = tv_tip_id.getText().toString();
+                        String tip_price = tv_tip_price.getText().toString();
+                    } else {
+
+                        AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
+                        //   builder1.setTitle("You are not loged in");
+                        builder1.setMessage("You have to be logged in to purchase a premium tip.");
+                        builder1.setCancelable(true);
+                        builder1.setPositiveButton("Log me in", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent i = new Intent(MainActivity.this, LoginActivity.class);
+                                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(i);
+                            }
+                        });
+                        builder1.setNegativeButton("I will buy later", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                        AlertDialog alert11 = builder1.create();
+                        alert11.show();
+
+                        // .setIcon(android.R.drawable.ic_dialog_alert)
+                    }
+                }
             }
         });
 
@@ -140,10 +174,36 @@ public class MainActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                loadDates();
-                new getTips().execute();
+                if (cd.isConnectingToInternet()) {
+                    getthemdata();
+                } else {
+                    AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
+                    //   builder1.setTitle("You are not loged in");
+                    builder1.setMessage("You cannot connect to the internet.");
+                    builder1.setCancelable(true);
+
+                    builder1.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            getthemdata();
+                        }
+                    });
+
+//                    builder1.setNegativeButton("I will buy later", new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            dialog.cancel();
+//                        }
+//                    });
+
+                    AlertDialog alert11 = builder1.create();
+                    alert11.show();
+                }
             }
         }, 100);
+    }
+
+    public void getthemdata() {
+        loadDates();
+        new getTips().execute();
     }
 
     public void popoulateDateSpinner(List<Dates> dateList) {
@@ -339,17 +399,44 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_account) {
-            Intent i = new Intent(MainActivity.this, AccountActivity.class);
-            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(i);
-            finish();
-            return true;
+            if (!session.isUserLoggedIn()) {
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
+                //   builder1.setTitle("You are not loged in");
+                builder1.setMessage("You have to be logged in to view your account.");
+                builder1.setCancelable(true);
+                builder1.setPositiveButton("Log me in", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent i = new Intent(MainActivity.this, LoginActivity.class);
+                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(i);
+                    }
+                });
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
+            } else {
+                Intent i = new Intent(MainActivity.this, AccountActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(i);
+                finish();
+                return true;
+            }
         }
 
         if (id == R.id.action_refresh) {
             new getTips().execute();
             loadDates();
+            return true;
+        }
+
+        if (id == R.id.action_logout) {
+            try {
+                session.logout();
+                Toast.makeText(MainActivity.this, "Logged out", Toast.LENGTH_LONG).show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             return true;
         }
 
@@ -454,6 +541,7 @@ public class MainActivity extends AppCompatActivity {
 
                     try {
                         tips = json.getJSONArray("tips");
+                        Log.e(TAG, tips.toString());
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -478,6 +566,7 @@ public class MainActivity extends AppCompatActivity {
                                 tip.setBought(obj.getString("bought"));
                                 tip.setImage(obj.getString("image"));
                                 tip.setOnsale(obj.getString("onsale"));
+                                tip.setPrice(obj.getString("price"));
 
                                 tipList.add(tip);
                             }

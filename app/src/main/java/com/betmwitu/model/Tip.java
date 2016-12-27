@@ -6,9 +6,26 @@ package com.betmwitu.model;
 
 public class Tip {
 
-    private String tip_id, home_team, away_team, date, kick_off, odd, prediction, score, result, bought, image, onsale;
+    private String tip_id, home_team, away_team, date, kick_off, odd, prediction, score, result, bought, image, onsale, price;
 
     public Tip() {
+    }
+
+    public Tip(String tip_id, String home_team, String away_team, String date, String kick_off, String odd, String prediction, String score, String result, String bought, String image, String onsale, String price) {
+        this.tip_id = tip_id;
+        this.home_team = home_team;
+        this.away_team = away_team;
+        this.date = date;
+
+        this.kick_off = kick_off;
+        this.odd = odd;
+        this.prediction = prediction;
+        this.score = score;
+        this.result = result;
+        this.bought = bought;
+        this.image = image;
+        this.price = price;
+        this.onsale = onsale;
     }
 
     public String getOnsale() {
@@ -19,20 +36,12 @@ public class Tip {
         this.onsale = onsale;
     }
 
-    public Tip(String tip_id, String home_team, String away_team, String date, String kick_off, String odd, String prediction, String score, String result, String bought, String image, String onsale) {
-        this.tip_id = tip_id;
-        this.home_team = home_team;
-        this.away_team = away_team;
-        this.date = date;
-        this.kick_off = kick_off;
-        this.odd = odd;
-        this.prediction = prediction;
-        this.score = score;
-        this.result = result;
-        this.bought = bought;
-        this.image = image;
+    public String getPrice() {
+        return price;
+    }
 
-        this.onsale = onsale;
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public String getTip_id() {

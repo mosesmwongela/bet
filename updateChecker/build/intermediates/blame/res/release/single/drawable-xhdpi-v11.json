@@ -1,10 +1,18 @@
 [
     {
-        "merged": "/home/mwongela/Desktop/BetMoja/updateChecker/build/intermediates/res/merged/release/drawable-xhdpi-v11/ic_stat_amazon.png",
-        "source": "/home/mwongela/Desktop/BetMoja/updateChecker/src/main/res/drawable-xhdpi-v11/ic_stat_amazon.png"
+        "merged": "E:\\home\\mwongela\\Desktop\\BetMoja\\updateChecker\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v11\\ic_stat_amazon.png",
+        "source": "E:\\home\\mwongela\\Desktop\\BetMoja\\updateChecker\\src\\main\\res\\drawable-xhdpi-v11\\ic_stat_amazon.png"
     },
     {
-        "merged": "/home/mwongela/Desktop/BetMoja/updateChecker/build/intermediates/res/merged/release/drawable-xhdpi-v11/ic_stat_play_store.png",
-        "source": "/home/mwongela/Desktop/BetMoja/updateChecker/src/main/res/drawable-xhdpi-v11/ic_stat_play_store.png"
+        "merged": "E:\\home\\mwongela\\Desktop\\BetMoja\\updateChecker\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v11\\ic_stat_play_store.png",
+        "source": "E:\\home\\mwongela\\Desktop\\BetMoja\\updateChecker\\src\\main\\res\\drawable-xhdpi-v11\\ic_stat_play_store.png"
+    },
+    {
+        "merged": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v11\\ic_stat_play_store.png",
+        "source": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\src\\main\\res\\drawable-xhdpi-v11\\ic_stat_play_store.png"
+    },
+    {
+        "merged": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v11\\ic_stat_amazon.png",
+        "source": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\src\\main\\res\\drawable-xhdpi-v11\\ic_stat_amazon.png"
     }
 ]

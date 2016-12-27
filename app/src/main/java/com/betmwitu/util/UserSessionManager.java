@@ -1,4 +1,4 @@
-package com.sikumojaventures.betmoja.util;
+package com.betmwitu.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -8,16 +8,14 @@ import android.content.SharedPreferences;
  */
 public class UserSessionManager {
 
+    public static final String KEY_USER_NAME = "username";
+    public static final String KEY_PHONE = "phone";
+    private static final String PREFER_NAME = "1315190519";
+    private static final String IS_USER_LOGIN = "IsUserLoggedIn";
     SharedPreferences pref;
     SharedPreferences.Editor editor;
     Context _context;
     int PRIVATE_MODE = 0;
-
-    private static final String PREFER_NAME = "1315190519";
-
-    private static final String IS_USER_LOGIN = "IsUserLoggedIn";
-    public static final String KEY_USER_NAME= "username";
-    public static final String KEY_PHONE= "phone";
 
     public UserSessionManager(Context context){
         this._context = context;

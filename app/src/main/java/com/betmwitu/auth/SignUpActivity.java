@@ -12,12 +12,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.betmwitu.MainActivity;
 import com.betmwitu.R;
+import com.betmwitu.db.UserSessionManager;
 import com.betmwitu.util.Config;
 import com.betmwitu.util.ConnectionDetector;
 import com.betmwitu.util.JSONParser;
-import com.betmwitu.db.UserSessionManager;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -30,15 +29,14 @@ import java.util.List;
 
 public class SignUpActivity extends ActionBarActivity implements OnClickListener{
 
+    JSONParser jsonParser = new JSONParser();
+    UserSessionManager session;
+    ConnectionDetector cd;
     private EditText etFullName, etPhone, etPass;
     private Button btnSingUp;
     private Button btnLogin;
     private String strFullName=null, strPhone=null, strPass=null, strReferee=null;
     private ProgressDialog pDialog;
-    JSONParser jsonParser = new JSONParser();
-
-    UserSessionManager session;
-    ConnectionDetector cd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,6 +125,49 @@ public class SignUpActivity extends ActionBarActivity implements OnClickListener
 
     }
 
+    public void help() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(SignUpActivity.this);
+        alert.setTitle("How to create an account");
+        alert.setMessage("Fill in the form with your details. Enter your full name, phone number and create a new password and tap sign up. All fields are compulsory.");
+        alert.setPositiveButton("Got it", null);
+        alert.show();
+    }
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        MenuInflater inflater = getMenuInflater();
+//        inflater.inflate(R.menu.activity_signup_actions, menu);
+//
+//        return super.onCreateOptionsMenu(menu);
+//    }
+//
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case R.id.action_help:
+//                help();
+//                return true;
+//            case R.id.action_signin:
+//                Intent signin = new Intent(SignUpActivity.this, LoginActivity.class);
+//                signin.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                signin.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                startActivity(signin);
+//                finish();
+//                return true;
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
+
+    public boolean isValidEmailAddress(String email) {
+        String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
+        java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
+        java.util.regex.Matcher m = p.matcher(email);
+        return m.matches();
+    }
+
+    private void errorToast(String tst) {
+        Toast.makeText(SignUpActivity.this, tst, Toast.LENGTH_SHORT).show();
+    }
+
     class CreateUser extends AsyncTask<String, String, String> {
 
         boolean failure = false;
@@ -159,11 +200,12 @@ public class SignUpActivity extends ActionBarActivity implements OnClickListener
                     // Creating user login session
                     session.createUserLoginSession(strFullName,strPhone);
 
-                    Intent i = new Intent(SignUpActivity.this, MainActivity.class);
-                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(i);
+//                    Intent i = new Intent(SignUpActivity.this, MainActivity.class);
+//                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                    startActivity(i);
                     finish();
+                    return null;
                 }
                 return json.getString(Config.TAG_MESSAGE);
             } catch (JSONException e) {
@@ -178,51 +220,5 @@ public class SignUpActivity extends ActionBarActivity implements OnClickListener
                 Toast.makeText(SignUpActivity.this, file_url, Toast.LENGTH_LONG).show();
             }
         }
-    }
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater inflater = getMenuInflater();
-//        inflater.inflate(R.menu.activity_signup_actions, menu);
-//
-//        return super.onCreateOptionsMenu(menu);
-//    }
-//
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//            case R.id.action_help:
-//                help();
-//                return true;
-//            case R.id.action_signin:
-//                Intent signin = new Intent(SignUpActivity.this, LoginActivity.class);
-//                signin.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                signin.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                startActivity(signin);
-//                finish();
-//                return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
-
-    public void help(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(SignUpActivity.this);
-        alert.setTitle("How to create an account");
-        alert.setMessage("Fill in the form with your details. Enter your full name, phone number and create a new password and tap sign up. All fields are compulsory.");
-        alert.setPositiveButton("Got it",null);
-        alert.show();
-    }
-
-
-
-    public boolean isValidEmailAddress(String email) {
-        String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
-        java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
-        java.util.regex.Matcher m = p.matcher(email);
-        return m.matches();
-    }
-
-
-    private void errorToast(String tst){
-        Toast.makeText(SignUpActivity.this, tst, Toast.LENGTH_SHORT).show();
     }
 }

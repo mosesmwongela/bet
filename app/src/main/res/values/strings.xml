@@ -6,12 +6,13 @@
     <string name="action_account">My account</string>
     <string name="action_refresh">Refresh</string>
 
-    <string name="how_to_top_up"><b>How to top-up:\n</b>Send any amount to this <b>Till Number: 123456</b>. When you receive the M-Pesa confirmation message, send us the M-Pesa transaction code.</string>
+    <string name="how_to_top_up"><b>How to top-up:\n</b>Send any amount to this <b>Till Number: 560921</b>. When you receive the M-Pesa confirmation message, send us the M-Pesa transaction code.</string>
 
     <string name="username">Username:\t\t\t</string>
     <string name="phonenumber">Phone number:\t</string>
     <string name="accountbalance">Account balance:\t</string>
     <string name="not_yet_implemented">not yet implemented</string>
     <string name="till_number">123456</string>
+    <string name="action_logout">Logout</string>
 
 </resources>
