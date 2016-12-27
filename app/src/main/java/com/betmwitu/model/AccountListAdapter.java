@@ -1,4 +1,4 @@
-package com.sikumojaventures.betmwitu.model;
+package com.betmwitu.model;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,7 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.sikumojaventures.betmwitu.R;
+import com.betmwitu.R;
 
 import java.util.List;
 

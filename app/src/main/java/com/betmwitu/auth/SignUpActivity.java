@@ -1,4 +1,4 @@
-package com.sikumojaventures.betmwitu.auth;
+package com.betmwitu.auth;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -12,12 +12,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.sikumojaventures.betmwitu.MainActivity;
-import com.sikumojaventures.betmwitu.R;
-import com.sikumojaventures.betmwitu.util.Config;
-import com.sikumojaventures.betmwitu.util.ConnectionDetector;
-import com.sikumojaventures.betmwitu.util.JSONParser;
-import com.sikumojaventures.betmwitu.db.UserSessionManager;
+import com.betmwitu.MainActivity;
+import com.betmwitu.R;
+import com.betmwitu.util.Config;
+import com.betmwitu.util.ConnectionDetector;
+import com.betmwitu.util.JSONParser;
+import com.betmwitu.db.UserSessionManager;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;

@@ -1,4 +1,4 @@
-package com.sikumojaventures.betmwitu.util;
+package com.betmwitu.util;
 
 import android.app.Service;
 import android.content.Intent;
@@ -12,7 +12,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.sikumojaventures.betmwitu.R;
+import com.betmwitu.R;
 
 /**
  * Created by mwongela on 12/20/16.

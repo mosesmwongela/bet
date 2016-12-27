@@ -1,4 +1,4 @@
-package com.sikumojaventures.betmwitu;
+package com.betmwitu;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

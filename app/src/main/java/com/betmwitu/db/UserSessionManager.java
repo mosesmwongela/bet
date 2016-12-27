@@ -1,4 +1,4 @@
-package com.sikumojaventures.betmwitu.db;
+package com.betmwitu.db;
 
 import android.content.Context;
 import android.content.SharedPreferences;

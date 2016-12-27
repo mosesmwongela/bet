@@ -1,4 +1,4 @@
-package com.sikumojaventures.betmwitu.util;
+package com.betmwitu.util;
  
 import java.io.BufferedReader;
 import java.io.IOException;

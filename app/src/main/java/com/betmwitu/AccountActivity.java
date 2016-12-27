@@ -1,4 +1,4 @@
-package com.sikumojaventures.betmwitu;
+package com.betmwitu;
 
 import android.app.ActivityManager;
 import android.content.Context;
@@ -22,12 +22,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.sikumojaventures.betmwitu.app.AppController;
-import com.sikumojaventures.betmwitu.db.UserSessionManager;
-import com.sikumojaventures.betmwitu.model.Account;
-import com.sikumojaventures.betmwitu.model.AccountListAdapter;
-import com.sikumojaventures.betmwitu.util.ConnectionDetector;
-import com.sikumojaventures.betmwitu.util.SystemAlertWindowService;
+import com.betmwitu.app.AppController;
+import com.betmwitu.db.UserSessionManager;
+import com.betmwitu.model.Account;
+import com.betmwitu.model.AccountListAdapter;
+import com.betmwitu.util.ConnectionDetector;
+import com.betmwitu.util.SystemAlertWindowService;
 
 import org.json.JSONArray;
 import org.json.JSONException;

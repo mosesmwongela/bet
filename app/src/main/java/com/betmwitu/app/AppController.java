@@ -1,4 +1,4 @@
-package com.sikumojaventures.betmwitu.app;
+package com.betmwitu.app;
 
 import android.app.Application;
 import android.text.TextUtils;
@@ -7,7 +7,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
-import com.sikumojaventures.betmwitu.util.LruBitmapCache;
+import com.betmwitu.util.LruBitmapCache;
 
 /**
  * Created by turnkey on 12/17/2016.

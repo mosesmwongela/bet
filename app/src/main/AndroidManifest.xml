@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sikumojaventures.betmwitu" >
+    package="com.betmwitu" >
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -8,13 +8,13 @@
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
-        android:name="com.sikumojaventures.betmwitu.app.AppController"
+        android:name="com.betmwitu.app.AppController"
         android:allowBackup="true"
         android:icon="@drawable/my_logo"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.sikumojaventures.betmwitu.MainActivity"
+            android:name="com.betmwitu.MainActivity"
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustPan"
             android:configChanges="orientation"
@@ -27,14 +27,14 @@
         </activity>
 
         <activity
-            android:name="com.sikumojaventures.betmwitu.auth.LoginActivity"
+            android:name="com.betmwitu.auth.LoginActivity"
             android:label="@string/app_name"
             android:configChanges="orientation"
             android:windowSoftInputMode="adjustPan"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name="com.sikumojaventures.betmwitu.auth.SignUpActivity"
+            android:name="com.betmwitu.auth.SignUpActivity"
             android:label="@string/app_name"
             android:configChanges="orientation"
             android:windowSoftInputMode="adjustPan"
@@ -42,14 +42,14 @@
         </activity>
 
         <activity
-            android:name="com.sikumojaventures.betmwitu.AccountActivity"
+            android:name="com.betmwitu.AccountActivity"
             android:label="@string/app_name"
             android:configChanges="orientation"
             android:windowSoftInputMode="adjustPan"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name="com.sikumojaventures.betmwitu.IntroActivity"
+        <activity android:name="com.betmwitu.IntroActivity"
             android:theme="@style/AppIntroTheme"
             android:label="@string/app_name"
             android:configChanges="orientation"
@@ -57,7 +57,7 @@
             android:screenOrientation="portrait" />
 
         <service
-            android:name="com.sikumojaventures.betmwitu.util.SystemAlertWindowService"
+            android:name="com.betmwitu.util.SystemAlertWindowService"
             android:enabled="true" />
     </application>
 
