@@ -85,13 +85,16 @@ public class CustomListAdapter extends BaseAdapter {
             if (m.getOnsale().equalsIgnoreCase("1") && m.getBought().equalsIgnoreCase("0")) {
                 result.setText("Buy Tip");
                 result.setTextColor(convertView.getResources().getColor(R.color.buy_tip));
+            }else{
+                result.setText("Share Tip");
+                result.setTextColor(convertView.getResources().getColor(R.color.primary));
             }
         }
 
         if(m.getOnsale().equalsIgnoreCase("1")&&m.getBought().equalsIgnoreCase("0")&&m.getScore().equalsIgnoreCase("-1")) {
-            prediction_odd.setText("Prediction: LOCKED [Odd:" + m.getOdd()+"]");
+            prediction_odd.setText("Tip: LOCKED [Odd:" + m.getOdd()+"]");
         }else{
-            prediction_odd.setText("Prediction: " + m.getPrediction() + "  [Odd:" + m.getOdd()+"]");
+            prediction_odd.setText("Tip: " + m.getPrediction() + "  [Odd:" + m.getOdd()+"]");
         }
 
         return convertView;
