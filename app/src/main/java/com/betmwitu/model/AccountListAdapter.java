@@ -63,7 +63,7 @@ public class AccountListAdapter extends BaseAdapter {
 
         Account acc = accountItems.get(position);
 
-        if(acc.getTrans_type().equalsIgnoreCase("1")){
+        if(acc.getTrans_type().equalsIgnoreCase("0")){
             thumbNail.setImageDrawable(ic_ray_start_arrow);
         }else{
             thumbNail.setImageDrawable(ic_ray_end_arrow);

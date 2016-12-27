@@ -1,5 +1,6 @@
 package com.betmwitu;
 
+import android.app.ProgressDialog;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -62,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String tip_url = "http://www.sikumojaventures.com/betmwitu/get_tips.php";
     private static final String date_url = "http://sikumojaventures.com/betmwitu/get_dates.php";
+    private static final String buytip_url = "http://sikumojaventures.com/betmwitu/buytip.php";
     ConnectionDetector cd;
     UserSessionManager session;
     //date to query tips
@@ -76,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
     private Spinner dateSpinner;
     private Boolean DOING_REFRESH_ANIM = false;
     private Menu mymenu;
+    private ProgressDialog pDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,8 +131,51 @@ public class MainActivity extends AppCompatActivity {
                 if (result.equalsIgnoreCase("Buy Tip")) {
 
                     if (session.isUserLoggedIn()) {
-                        String tip_id = tv_tip_id.getText().toString();
-                        String tip_price = tv_tip_price.getText().toString();
+                        final String tip_id = tv_tip_id.getText().toString();
+                        final String tip_price = tv_tip_price.getText().toString();
+                        final String home_away = tv_home_away.getText().toString();
+
+                        if(Integer.parseInt(session.getAccountBalanceInt())>=Integer.parseInt(tip_price)) {
+
+                            AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
+                            builder1.setTitle("Buy premium tip");
+                            builder1.setMessage("Confirm that you want to buy " + home_away + "'s premium tip @ ksh " + tip_price);
+                            builder1.setCancelable(true);
+                            builder1.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                        new buyTip().execute(tip_id, tip_price, home_away);
+                                }
+                            });
+                            builder1.setNegativeButton("Later", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.cancel();
+                                }
+                            });
+                            AlertDialog alert11 = builder1.create();
+                            alert11.show();
+                        }else{
+                            AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
+                            builder1.setTitle("Insufficient account balance");
+                            builder1.setMessage("You need to top-up your account with ksh "+tip_price+" to be able to purchase this premium tip.");
+                            builder1.setCancelable(true);
+                            builder1.setPositiveButton("Top up now", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent i = new Intent(MainActivity.this, AccountActivity.class);
+                                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    startActivity(i);
+                                    finish();
+                                }
+                            });
+                            builder1.setNegativeButton("Later", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.cancel();
+                                }
+                            });
+                            AlertDialog alert11 = builder1.create();
+                            alert11.show();
+                        }
+
                     } else {
 
                         AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
@@ -187,13 +233,11 @@ public class MainActivity extends AppCompatActivity {
                             getthemdata();
                         }
                     });
-
-//                    builder1.setNegativeButton("I will buy later", new DialogInterface.OnClickListener() {
-//                        public void onClick(DialogInterface dialog, int which) {
-//                            dialog.cancel();
-//                        }
-//                    });
-
+                    builder1.setNegativeButton("Close app", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                        }
+                    });
                     AlertDialog alert11 = builder1.create();
                     alert11.show();
                 }
@@ -201,9 +245,83 @@ public class MainActivity extends AppCompatActivity {
         }, 100);
     }
 
+    class buyTip extends AsyncTask<String, String, String> {
+        int success = 0;
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pDialog = new ProgressDialog(MainActivity.this);
+            pDialog.setMessage("Processing transaction");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(true);
+            pDialog.show();
+        }
+
+        @Override
+        protected String doInBackground(String... args) {
+
+            try {
+
+                String tip_id = args[0];
+                String tip_price = args[1];
+                String home_away = args[2];
+
+                List<NameValuePair> params = new ArrayList<NameValuePair>();
+                params.add(new BasicNameValuePair("tip_id", tip_id));
+                params.add(new BasicNameValuePair("tip_price", tip_price));
+                params.add(new BasicNameValuePair("home_away", home_away));
+                params.add(new BasicNameValuePair("phone", session.getPhone()));
+
+                JSONObject json = jsonParser.makeHttpRequest(buytip_url, "POST", params);
+
+                success = json.getInt(Config.TAG_SUCCESS);
+                if (success == 1) {
+                    String account_balance = json.getString("account_balance");
+                    session.updateAccountBalance(account_balance);
+                }
+                return json.getString(Config.TAG_MESSAGE);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        protected void onPostExecute(String file_url) {
+            pDialog.dismiss();
+            if (file_url != null) {
+                Toast.makeText(MainActivity.this, file_url, Toast.LENGTH_LONG).show();
+            }
+
+            if(success==1){
+                new getTips().execute();
+            }
+
+        }
+    }
+
     public void getthemdata() {
-        loadDates();
-        new getTips().execute();
+        if (cd.isConnectingToInternet()) {
+            loadDates();
+            new getTips().execute();
+        } else {
+            AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
+            builder1.setMessage("You cannot connect to the internet.");
+            builder1.setCancelable(false);
+
+            builder1.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    getthemdata();
+                }
+            });
+
+            builder1.setNegativeButton("Close app", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+            }
+            });
+            AlertDialog alert11 = builder1.create();
+            alert11.show();
+        }
     }
 
     public void popoulateDateSpinner(List<Dates> dateList) {
@@ -237,9 +355,8 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> arg0, View view, int position, long id) {
                 int item = dateSpinner.getSelectedItemPosition();
                 dateParam = dateList_Orig.get(item).getDate();
-                new getTips().execute();
+                browseTips();
             }
-
             public void onNothingSelected(AdapterView<?> arg0) {
             }
         });
@@ -248,6 +365,30 @@ public class MainActivity extends AppCompatActivity {
             int spinnerPosition = adapter.getPosition(dateToday);
             dateSpinner.setSelection(spinnerPosition);
             dateParam = dateList_Orig.get(spinnerPosition).getDate();
+        }
+    }
+
+    public void browseTips(){
+        if (cd.isConnectingToInternet()) {
+            new getTips().execute();
+        } else {
+            AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
+            builder1.setMessage("You cannot connect to the internet.");
+            builder1.setCancelable(true);
+
+            builder1.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    browseTips();
+                }
+            });
+
+            builder1.setPositiveButton("Close app", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                }
+            });
+            AlertDialog alert11 = builder1.create();
+            alert11.show();
         }
     }
 
@@ -530,6 +671,7 @@ public class MainActivity extends AppCompatActivity {
 
                 List<NameValuePair> params = new ArrayList<NameValuePair>();
                 params.add(new BasicNameValuePair("date", dateParam));
+                params.add(new BasicNameValuePair("phone", session.getPhone()));
 
                 JSONObject json = jsonParser.makeHttpRequest(tip_url, "POST", params);
 

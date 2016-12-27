@@ -11,6 +11,7 @@ public class UserSessionManager {
     public static final String KEY_USER_NAME = "username";
     public static final String KEY_PHONE = "phone";
     public static final String KEY_ACCOUNT_BALANCE = "account_balance";
+    public static final String KEY_ACCOUNT_BALANCE_INT = "account_balance_int";
     public static final String KEY_FIRST_RUN = "firstRun";
     private static final String PREFER_NAME = "1315190519";
 
@@ -28,6 +29,7 @@ public class UserSessionManager {
 
     public void updateAccountBalance(String account_balance) {
         editor.putString(KEY_ACCOUNT_BALANCE, "Ksh " + account_balance);
+        editor.putString(KEY_ACCOUNT_BALANCE_INT, account_balance);
         editor.commit();
     }
 
@@ -55,8 +57,12 @@ public class UserSessionManager {
         return pref.getString(KEY_ACCOUNT_BALANCE, "0.00");
     }
 
+    public String getAccountBalanceInt() {
+        return pref.getString(KEY_ACCOUNT_BALANCE_INT, "0");
+    }
+
     public String getPhone(){
-        return pref.getString(KEY_PHONE, null);
+        return pref.getString(KEY_PHONE, "");
     }
 
     public void logout() {
