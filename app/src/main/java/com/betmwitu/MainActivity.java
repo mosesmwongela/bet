@@ -1,5 +1,6 @@
 package com.betmwitu;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.ComponentName;
 import android.content.Context;
@@ -13,6 +14,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -236,7 +238,6 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 if (cd.isConnectingToInternet()) {
                     getthemdata();
-                    new getDeviceLastSeen().execute();
                 } else {
                     AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
                     //   builder1.setTitle("You are not loged in");
@@ -702,19 +703,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getPhoneDetails(){
-        TelephonyManager telephonyManager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
-        IMEI = telephonyManager.getDeviceId();
-
-        MODEL = android.os.Build.MODEL;
-        MANUFACTURER = android.os.Build.MANUFACTURER;
-        ANDROID_VERSION = ""+Build.VERSION.RELEASE;
-        PackageInfo pInfo = null;
         try {
-            pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
-        } catch (PackageManager.NameNotFoundException e) {
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE)
+                    == PackageManager.PERMISSION_GRANTED) {
+                TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+                IMEI = telephonyManager.getDeviceId();
+
+                MODEL = android.os.Build.MODEL;
+                MANUFACTURER = android.os.Build.MANUFACTURER;
+                ANDROID_VERSION = "" + Build.VERSION.RELEASE;
+                PackageInfo pInfo = null;
+                try {
+                    pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+                } catch (PackageManager.NameNotFoundException e) {
+                    e.printStackTrace();
+                }
+                APP_VERSION = pInfo.versionName;
+
+                if(cd.isConnectingToInternet()){
+                    new getDeviceLastSeen().execute();
+                }
+            }
+        }catch(Exception e){
             e.printStackTrace();
         }
-        APP_VERSION = pInfo.versionName;
     }
 
     class getDeviceLastSeen extends AsyncTask<String, String, String> {
