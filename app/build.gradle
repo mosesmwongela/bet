@@ -9,8 +9,8 @@ android {
         applicationId "com.betmwitu"
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0.Beta"
+        versionCode 2
+        versionName "1.0.1"
     }
     buildTypes {
         release {
@@ -27,4 +27,6 @@ dependencies {
     compile 'com.android.volley:volley:1.0.0'
     compile 'com.github.paolorotolo:appintro:4.1.0'
     compile 'com.github.medyo:android-about-page:1.1.1'
+    compile 'com.google.firebase:firebase-messaging:9.0.0'
 }
+apply plugin: 'com.google.gms.google-services'

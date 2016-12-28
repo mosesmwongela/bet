@@ -13,14 +13,6 @@
         android:textSize="@dimen/home_away"
         android:textStyle="bold" />
 
-    <!--Tip Price-->
-    <TextView
-        android:id="@+id/tip_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/home_away"
-        android:textStyle="bold" />
-
     <!-- Thumbnail Image -->
     <com.android.volley.toolbox.NetworkImageView
         android:id="@+id/thumbnail"
@@ -57,6 +49,16 @@
         android:layout_below="@id/date_kick_off"
         android:layout_toRightOf="@+id/thumbnail"
         android:textColor="@color/date_kick_off"
+        android:textSize="@dimen/prediction_odd" />
+
+    <!-- Price -->
+    <TextView
+        android:id="@+id/tip_price"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/prediction_odd"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:textColor="@color/buy_tip"
         android:textSize="@dimen/prediction_odd" />
 
     <!-- Result -->

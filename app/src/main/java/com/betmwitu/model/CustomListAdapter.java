@@ -71,8 +71,8 @@ public class CustomListAdapter extends BaseAdapter {
         tip_id.setText(m.getTip_id());
         tip_id.setVisibility(View.GONE);
 
-        tip_price.setText(m.getPrice());
-        tip_price.setVisibility(View.GONE);
+        tip_price.setText("price: ksh: "+m.getPrice());
+        result.setTextColor(convertView.getResources().getColor(R.color.buy_tip));
 
         thumbNail.setImageUrl(m.getImage(), imageLoader);
 
@@ -85,17 +85,21 @@ public class CustomListAdapter extends BaseAdapter {
             if(m.getResult().equalsIgnoreCase("1")) {
                 result.setText("Won");
                 result.setTextColor(convertView.getResources().getColor(R.color.won));
+                tip_price.setVisibility(View.GONE);
             }else if(m.getResult().equalsIgnoreCase("0")) {
                 result.setText("Lost");
                 result.setTextColor(convertView.getResources().getColor(R.color.lost));
+                tip_price.setVisibility(View.GONE);
             }
         }else{
             if (m.getOnsale().equalsIgnoreCase("1") && m.getBought().equalsIgnoreCase("0")) {
                 result.setText("Buy Tip");
                 result.setTextColor(convertView.getResources().getColor(R.color.buy_tip));
+                tip_price.setVisibility(View.VISIBLE);
             }else{
                 result.setText("Share Tip");
                 result.setTextColor(convertView.getResources().getColor(R.color.primary));
+                tip_price.setVisibility(View.GONE);
             }
         }
 

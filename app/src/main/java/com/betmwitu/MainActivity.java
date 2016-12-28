@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
     private Boolean DOING_REFRESH_ANIM = false;
     private Menu mymenu;
     private ProgressDialog pDialog;
-    private String IMEI, MANUFACTURER, MODEL, ANDROID_VERSION, APP_VERSION;
+    private String IMEI="", MANUFACTURER="", MODEL="", ANDROID_VERSION="", APP_VERSION="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -329,7 +329,7 @@ public class MainActivity extends AppCompatActivity {
             dateSpinner.setSelection(spinnerPosition);
             try {
                 dateParam = dateList_Orig.get(spinnerPosition).getDate();
-            }catch(Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -702,7 +702,7 @@ public class MainActivity extends AppCompatActivity {
         }, 2000);
     }
 
-    public void getPhoneDetails(){
+    public void getPhoneDetails() {
         try {
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE)
                     == PackageManager.PERMISSION_GRANTED) {
@@ -719,12 +719,12 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 APP_VERSION = pInfo.versionName;
-
-                if(cd.isConnectingToInternet()){
-                    new getDeviceLastSeen().execute();
-                }
             }
-        }catch(Exception e){
+
+            if (cd.isConnectingToInternet()) {
+                new getDeviceLastSeen().execute();
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
