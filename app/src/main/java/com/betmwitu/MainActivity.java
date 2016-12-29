@@ -393,9 +393,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                this, android.R.layout.simple_spinner_item, spinnerDate);
+                this, R.layout.spinner_item, spinnerDate);
 
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(R.layout.spinner_item_drop_down);
         dateSpinner.setAdapter(adapter);
 
         dateSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
