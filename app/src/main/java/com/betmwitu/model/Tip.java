@@ -6,12 +6,20 @@ package com.betmwitu.model;
 
 public class Tip {
 
-    private String tip_id, home_team, away_team, date, kick_off, odd, prediction, score, result, bought, image, onsale, price;
+    private String tip_id, home_team, away_team, date, kick_off, odd, prediction, score, result, bought, image, onsale, price, talk, country_name;
 
     public Tip() {
     }
 
-    public Tip(String tip_id, String home_team, String away_team, String date, String kick_off, String odd, String prediction, String score, String result, String bought, String image, String onsale, String price) {
+    public String getCountry_name() {
+        return country_name;
+    }
+
+    public void setCountry_name(String country_name) {
+        this.country_name = country_name;
+    }
+
+    public Tip(String tip_id, String home_team, String away_team, String date, String kick_off, String odd, String prediction, String score, String result, String bought, String image, String onsale, String price, String talk, String country_name) {
         this.tip_id = tip_id;
         this.home_team = home_team;
         this.away_team = away_team;
@@ -26,6 +34,17 @@ public class Tip {
         this.image = image;
         this.price = price;
         this.onsale = onsale;
+        this.talk = talk;
+        this.country_name = country_name;
+
+    }
+
+    public String getTalk() {
+        return talk;
+    }
+
+    public void setTalk(String talk) {
+        this.talk = talk;
     }
 
     public String getOnsale() {

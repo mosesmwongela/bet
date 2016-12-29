@@ -7,10 +7,12 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.betmwitu.R;
@@ -164,6 +166,15 @@ public class LoginActivity extends ActionBarActivity implements OnClickListener{
             pDialog = new ProgressDialog(LoginActivity.this);
             pDialog.setTitle("Attempting Login");
             pDialog.setMessage("please wait as we try to log you in...");
+
+//            LayoutInflater inflater =  getLayoutInflater();
+//            View dialogView = inflater.inflate(R.layout.dialogue_layout, null);
+//            pDialog.setView(dialogView);
+//            TextView dialogue_heading = (TextView) dialogView.findViewById(R.id.dialogue_heading);
+//            TextView dialogue_message = (TextView) dialogView.findViewById(R.id.dialogue_message);
+//            dialogue_message.setText("Attempting Login");
+//            dialogue_message.setText("please wait as we try to log you in...");
+
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(true);
             pDialog.show();

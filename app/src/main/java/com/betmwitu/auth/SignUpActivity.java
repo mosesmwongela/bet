@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.betmwitu.R;
@@ -178,6 +180,15 @@ public class SignUpActivity extends ActionBarActivity implements OnClickListener
             pDialog = new ProgressDialog(SignUpActivity.this);
             pDialog.setTitle("Signing up");
             pDialog.setMessage("Hi, "+strFullName+". please wait as we create your account...");
+
+//            LayoutInflater inflater =  getLayoutInflater();
+//            View dialogView = inflater.inflate(R.layout.dialogue_layout, null);
+//            pDialog.setView(dialogView);
+//            TextView dialogue_heading = (TextView) dialogView.findViewById(R.id.dialogue_heading);
+//            TextView dialogue_message = (TextView) dialogView.findViewById(R.id.dialogue_message);
+//            dialogue_message.setText("Signing up");
+//            dialogue_message.setText("Hi, "+strFullName+". please wait as we create your account...");
+
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(true);
             pDialog.show();

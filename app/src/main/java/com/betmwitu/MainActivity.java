@@ -117,9 +117,11 @@ public class MainActivity extends AppCompatActivity {
                 TextView tv_result = (TextView) view.findViewById(R.id.result);
                 TextView tv_tip_id = (TextView) view.findViewById(R.id.tip_id);
                 TextView tv_tip_price = (TextView) view.findViewById(R.id.tip_price);
-                TextView tv_home_away = (TextView) view.findViewById(R.id.home_away);
-                TextView tv_prediction_odd = (TextView) view.findViewById(R.id.prediction_odd);
-                TextView tv_date_kick_off = (TextView) view.findViewById(R.id.date_kick_off);
+                final TextView tv_home_away = (TextView) view.findViewById(R.id.home_away);
+                final TextView tv_prediction_odd = (TextView) view.findViewById(R.id.prediction_odd);
+                final TextView tv_date_kick_off = (TextView) view.findViewById(R.id.date_kick_off);
+                TextView tv_tip_talk = (TextView) view.findViewById(R.id.tip_talk);
+                TextView tv_tip_country = (TextView) view.findViewById(R.id.tip_country);
 
                 String result = tv_result.getText().toString();
 
@@ -144,6 +146,56 @@ public class MainActivity extends AppCompatActivity {
                     onShareClick(tip);
                 }
 
+                if (result.equalsIgnoreCase("View Analysis")) {
+                    String talk = tv_tip_talk.getText().toString();
+
+                    AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
+
+                    LayoutInflater inflater =  getLayoutInflater();
+                    View dialogView = inflater.inflate(R.layout.tip_talk, null);
+                    builder1.setView(dialogView);
+
+                    TextView home_away = (TextView) dialogView.findViewById(R.id.home_away);
+                    TextView tip_country = (TextView) dialogView.findViewById(R.id.tip_country);
+                    TextView tip_talk = (TextView) dialogView.findViewById(R.id.tip_talk);
+
+                    home_away.setText(tv_home_away.getText().toString());
+                    tip_country.setText("Country: "+tv_tip_country.getText().toString());
+                    tip_talk.setText(talk);
+
+                    builder1.setCancelable(true);
+                    builder1.setPositiveButton("Share Tip", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                            DateFormat df2 = new SimpleDateFormat("E dd, MMM");
+                            Date startDate;
+                            String newDateString = null;
+                            try {
+                                startDate = df.parse(dateParam);
+                                newDateString = df2.format(startDate);
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+
+                            String tip =
+                                    tv_home_away.getText().toString() + "\n" +
+                                            newDateString + "\n" +
+                                            tv_date_kick_off.getText().toString() + "\n" +
+                                            tv_prediction_odd.getText().toString();
+                            onShareClick(tip);
+                        }
+                    });
+
+                    builder1.setNegativeButton("Close", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+
+                    AlertDialog alert11 = builder1.create();
+                    alert11.show();
+                }
+
                 if (result.equalsIgnoreCase("Buy Tip")) {
 
                     if (session.isUserLoggedIn()) {
@@ -154,8 +206,15 @@ public class MainActivity extends AppCompatActivity {
                         if (Integer.parseInt(session.getAccountBalanceInt()) >= Integer.parseInt(tip_price)) {
 
                             AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
-                            builder1.setTitle("Buy premium tip");
-                            builder1.setMessage("Confirm that you want to buy " + home_away + "'s premium tip @ ksh " + tip_price);
+
+                            LayoutInflater inflater =  getLayoutInflater();
+                            View dialogView = inflater.inflate(R.layout.dialogue_layout, null);
+                            builder1.setView(dialogView);
+                            TextView dialogue_heading = (TextView) dialogView.findViewById(R.id.dialogue_heading);
+                            TextView dialogue_message = (TextView) dialogView.findViewById(R.id.dialogue_message);
+                            dialogue_heading.setText("Buy premium tip");
+                            dialogue_message.setText("Confirm that you want to buy " + home_away + "'s premium tip @ ksh " + tip_price);
+
                             builder1.setCancelable(true);
                             builder1.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
@@ -171,8 +230,15 @@ public class MainActivity extends AppCompatActivity {
                             alert11.show();
                         } else {
                             AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
-                            builder1.setTitle("Insufficient account balance");
-                            builder1.setMessage("You need to top-up your account with ksh " + tip_price + " to be able to purchase this premium tip.");
+
+                            LayoutInflater inflater =  getLayoutInflater();
+                            View dialogView = inflater.inflate(R.layout.dialogue_layout, null);
+                            builder1.setView(dialogView);
+                            TextView dialogue_heading = (TextView) dialogView.findViewById(R.id.dialogue_heading);
+                            TextView dialogue_message = (TextView) dialogView.findViewById(R.id.dialogue_message);
+                            dialogue_heading.setText("Insufficient account balance");
+                            dialogue_message.setText("You need to top-up your account with ksh " + tip_price + " to be able to purchase this premium tip.");
+
                             builder1.setCancelable(true);
                             builder1.setPositiveButton("Top up now", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
@@ -195,8 +261,15 @@ public class MainActivity extends AppCompatActivity {
                     } else {
 
                         AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
-                        //   builder1.setTitle("You are not loged in");
-                        builder1.setMessage("You have to be logged in to purchase a premium tip.");
+
+                        LayoutInflater inflater =  getLayoutInflater();
+                        View dialogView = inflater.inflate(R.layout.dialogue_layout, null);
+                        builder1.setView(dialogView);
+                        TextView dialogue_heading = (TextView) dialogView.findViewById(R.id.dialogue_heading);
+                        TextView dialogue_message = (TextView) dialogView.findViewById(R.id.dialogue_message);
+                      //  dialogue_heading.setText("Insufficient account balance");
+                        dialogue_message.setText("You have to be logged in to purchase a premium tip.");
+
                         builder1.setCancelable(true);
                         builder1.setPositiveButton("Log me in", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
@@ -240,8 +313,15 @@ public class MainActivity extends AppCompatActivity {
                     getthemdata();
                 } else {
                     AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
-                    //   builder1.setTitle("You are not loged in");
-                    builder1.setMessage("You cannot connect to the internet.");
+
+                    LayoutInflater inflater =  getLayoutInflater();
+                    View dialogView = inflater.inflate(R.layout.dialogue_layout, null);
+                    builder1.setView(dialogView);
+                    TextView dialogue_heading = (TextView) dialogView.findViewById(R.id.dialogue_heading);
+                    TextView dialogue_message = (TextView) dialogView.findViewById(R.id.dialogue_message);
+                    dialogue_heading.setText("Error");
+                    dialogue_message.setText("You cannot connect to the internet.");
+
                     builder1.setCancelable(true);
 
                     builder1.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
@@ -267,7 +347,13 @@ public class MainActivity extends AppCompatActivity {
             new getTips().execute();
         } else {
             AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
-            builder1.setMessage("You cannot connect to the internet.");
+            LayoutInflater inflater =  getLayoutInflater();
+            View dialogView = inflater.inflate(R.layout.dialogue_layout, null);
+            builder1.setView(dialogView);
+            TextView dialogue_heading = (TextView) dialogView.findViewById(R.id.dialogue_heading);
+            TextView dialogue_message = (TextView) dialogView.findViewById(R.id.dialogue_message);
+            dialogue_heading.setText("Error");
+            dialogue_message.setText("You cannot connect to the internet.");
             builder1.setCancelable(false);
 
             builder1.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
@@ -340,7 +426,13 @@ public class MainActivity extends AppCompatActivity {
             new getTips().execute();
         } else {
             AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
-            builder1.setMessage("You cannot connect to the internet.");
+            LayoutInflater inflater =  getLayoutInflater();
+            View dialogView = inflater.inflate(R.layout.dialogue_layout, null);
+            builder1.setView(dialogView);
+            TextView dialogue_heading = (TextView) dialogView.findViewById(R.id.dialogue_heading);
+            TextView dialogue_message = (TextView) dialogView.findViewById(R.id.dialogue_message);
+            dialogue_heading.setText("Error");
+            dialogue_message.setText("You cannot connect to the internet.");
             builder1.setCancelable(true);
 
             builder1.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
@@ -509,8 +601,12 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_account) {
             if (!session.isUserLoggedIn()) {
                 AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
-                //   builder1.setTitle("You are not loged in");
-                builder1.setMessage("You have to be logged in to view your account.");
+                LayoutInflater inflater =  getLayoutInflater();
+                View dialogView = inflater.inflate(R.layout.dialogue_layout, null);
+                builder1.setView(dialogView);
+                TextView dialogue_heading = (TextView) dialogView.findViewById(R.id.dialogue_heading);
+                TextView dialogue_message = (TextView) dialogView.findViewById(R.id.dialogue_message);
+                dialogue_message.setText("You have to be logged in to view your account.");
                 builder1.setCancelable(true);
                 builder1.setPositiveButton("Log me in", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
@@ -712,13 +808,13 @@ public class MainActivity extends AppCompatActivity {
                 MODEL = android.os.Build.MODEL;
                 MANUFACTURER = android.os.Build.MANUFACTURER;
                 ANDROID_VERSION = "" + Build.VERSION.RELEASE;
-                PackageInfo pInfo = null;
-                try {
-                    pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
-                } catch (PackageManager.NameNotFoundException e) {
-                    e.printStackTrace();
-                }
+            }
+            PackageInfo pInfo = null;
+            try {
+                pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
                 APP_VERSION = pInfo.versionName;
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
             }
 
             if (cd.isConnectingToInternet()) {
@@ -874,6 +970,8 @@ public class MainActivity extends AppCompatActivity {
                                 tip.setImage(obj.getString("image"));
                                 tip.setOnsale(obj.getString("onsale"));
                                 tip.setPrice(obj.getString("price"));
+                                tip.setTalk(obj.getString("talk"));
+                                tip.setCountry_name(obj.getString("country_name"));
 
                                 tipList.add(tip);
                             }

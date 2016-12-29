@@ -66,6 +66,8 @@ public class CustomListAdapter extends BaseAdapter {
         TextView tip_id = (TextView) convertView.findViewById(R.id.tip_id);
         TextView tip_price = (TextView) convertView.findViewById(R.id.tip_price);
         TextView tip_price_display = (TextView) convertView.findViewById(R.id.tip_price_display);
+        TextView tip_talk = (TextView) convertView.findViewById(R.id.tip_talk);
+        TextView tip_country = (TextView) convertView.findViewById(R.id.tip_country);
 
         Tip m = tipItems.get(position);
 
@@ -75,7 +77,17 @@ public class CustomListAdapter extends BaseAdapter {
         tip_price.setText(m.getPrice());
         tip_price.setVisibility(View.GONE);
 
-        tip_price_display.setText("price: ksh "+m.getPrice());
+        tip_talk.setText(m.getTalk());
+        tip_talk.setVisibility(View.GONE);
+
+        tip_country.setText(m.getCountry_name());
+        tip_country.setVisibility(View.GONE);
+
+        if(Integer.parseInt(m.getPrice())>0) {
+            tip_price_display.setText("price: ksh " + m.getPrice());
+        }else{
+            tip_price_display.setText("price: FREE");
+        }
         tip_price_display.setTextColor(convertView.getResources().getColor(R.color.buy_tip));
 
         thumbNail.setImageUrl(m.getImage(), imageLoader);
@@ -101,9 +113,14 @@ public class CustomListAdapter extends BaseAdapter {
                 result.setTextColor(convertView.getResources().getColor(R.color.buy_tip));
                 tip_price_display.setVisibility(View.VISIBLE);
             }else{
-                result.setText("Share Tip");
-                result.setTextColor(convertView.getResources().getColor(R.color.primary));
-                tip_price_display.setVisibility(View.GONE);
+                tip_price_display.setVisibility(View.VISIBLE);
+                if(m.getTalk()!= null && m.getTalk().length()>0) {
+                    result.setText("View Analysis");
+                    result.setTextColor(convertView.getResources().getColor(R.color.primary));
+                }else{
+                    result.setText("Share Tip");
+                    result.setTextColor(convertView.getResources().getColor(R.color.primary));
+                }
             }
         }
 

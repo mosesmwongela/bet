@@ -19,6 +19,19 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
 
+    <!-- TALK-->
+    <TextView
+        android:id="@+id/tip_talk"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- Country -->
+    <TextView
+        android:id="@+id/tip_country"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+
     <!-- Thumbnail Image -->
     <com.android.volley.toolbox.NetworkImageView
         android:id="@+id/thumbnail"
