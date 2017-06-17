@@ -1,18 +1,10 @@
 [
     {
-        "merged": "E:\\home\\mwongela\\Desktop\\BetMoja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
-        "source": "E:\\home\\mwongela\\Desktop\\BetMoja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
+        "merged": "E:\\Projects\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
+        "source": "C:\\Users\\Moses\\.android\\build-cache\\a0a3ae361420f6b80fc94fa7d16452f9b7688ee7\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
     },
     {
-        "merged": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
-        "source": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
-    },
-    {
-        "merged": "E:\\home\\mwongela\\Desktop\\BetMoja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
-        "source": "E:\\home\\mwongela\\Desktop\\BetMoja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
-    },
-    {
-        "merged": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
-        "source": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
+        "merged": "E:\\Projects\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
+        "source": "C:\\Users\\Moses\\.android\\build-cache\\a0a3ae361420f6b80fc94fa7d16452f9b7688ee7\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
     }
 ]

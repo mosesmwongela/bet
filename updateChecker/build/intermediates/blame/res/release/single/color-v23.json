@@ -1,74 +1,38 @@
 [
     {
-        "merged": "E:\\home\\mwongela\\Desktop\\BetMoja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v23\\abc_tint_edittext.xml",
-        "source": "E:\\home\\mwongela\\Desktop\\BetMoja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\color-v23\\abc_tint_edittext.xml"
+        "merged": "E:\\Projects\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v23\\abc_tint_switch_thumb.xml",
+        "source": "C:\\Users\\Moses\\.android\\build-cache\\a0a3ae361420f6b80fc94fa7d16452f9b7688ee7\\output\\res\\color-v23\\abc_tint_switch_thumb.xml"
     },
     {
-        "merged": "E:\\home\\mwongela\\Desktop\\BetMoja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v23\\abc_tint_seek_thumb.xml",
-        "source": "E:\\home\\mwongela\\Desktop\\BetMoja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\color-v23\\abc_tint_seek_thumb.xml"
+        "merged": "E:\\Projects\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v23\\abc_tint_seek_thumb.xml",
+        "source": "C:\\Users\\Moses\\.android\\build-cache\\a0a3ae361420f6b80fc94fa7d16452f9b7688ee7\\output\\res\\color-v23\\abc_tint_seek_thumb.xml"
     },
     {
-        "merged": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v23\\abc_tint_edittext.xml",
-        "source": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\color-v23\\abc_tint_edittext.xml"
+        "merged": "E:\\Projects\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v23\\abc_tint_spinner.xml",
+        "source": "C:\\Users\\Moses\\.android\\build-cache\\a0a3ae361420f6b80fc94fa7d16452f9b7688ee7\\output\\res\\color-v23\\abc_tint_spinner.xml"
     },
     {
-        "merged": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v23\\abc_color_highlight_material.xml",
-        "source": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\color-v23\\abc_color_highlight_material.xml"
+        "merged": "E:\\Projects\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v23\\abc_tint_edittext.xml",
+        "source": "C:\\Users\\Moses\\.android\\build-cache\\a0a3ae361420f6b80fc94fa7d16452f9b7688ee7\\output\\res\\color-v23\\abc_tint_edittext.xml"
     },
     {
-        "merged": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v23\\abc_tint_spinner.xml",
-        "source": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\color-v23\\abc_tint_spinner.xml"
+        "merged": "E:\\Projects\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v23\\abc_tint_default.xml",
+        "source": "C:\\Users\\Moses\\.android\\build-cache\\a0a3ae361420f6b80fc94fa7d16452f9b7688ee7\\output\\res\\color-v23\\abc_tint_default.xml"
     },
     {
-        "merged": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v23\\abc_tint_switch_thumb.xml",
-        "source": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\color-v23\\abc_tint_switch_thumb.xml"
+        "merged": "E:\\Projects\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v23\\abc_tint_switch_track.xml",
+        "source": "C:\\Users\\Moses\\.android\\build-cache\\a0a3ae361420f6b80fc94fa7d16452f9b7688ee7\\output\\res\\color-v23\\abc_tint_switch_track.xml"
     },
     {
-        "merged": "E:\\home\\mwongela\\Desktop\\BetMoja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v23\\abc_tint_default.xml",
-        "source": "E:\\home\\mwongela\\Desktop\\BetMoja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\color-v23\\abc_tint_default.xml"
+        "merged": "E:\\Projects\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v23\\abc_tint_btn_checkable.xml",
+        "source": "C:\\Users\\Moses\\.android\\build-cache\\a0a3ae361420f6b80fc94fa7d16452f9b7688ee7\\output\\res\\color-v23\\abc_tint_btn_checkable.xml"
     },
     {
-        "merged": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v23\\abc_btn_colored_borderless_text_material.xml",
-        "source": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\color-v23\\abc_btn_colored_borderless_text_material.xml"
+        "merged": "E:\\Projects\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v23\\abc_btn_colored_borderless_text_material.xml",
+        "source": "C:\\Users\\Moses\\.android\\build-cache\\a0a3ae361420f6b80fc94fa7d16452f9b7688ee7\\output\\res\\color-v23\\abc_btn_colored_borderless_text_material.xml"
     },
     {
-        "merged": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v23\\abc_tint_default.xml",
-        "source": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\color-v23\\abc_tint_default.xml"
-    },
-    {
-        "merged": "E:\\home\\mwongela\\Desktop\\BetMoja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v23\\abc_tint_spinner.xml",
-        "source": "E:\\home\\mwongela\\Desktop\\BetMoja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\color-v23\\abc_tint_spinner.xml"
-    },
-    {
-        "merged": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v23\\abc_tint_switch_track.xml",
-        "source": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\color-v23\\abc_tint_switch_track.xml"
-    },
-    {
-        "merged": "E:\\home\\mwongela\\Desktop\\BetMoja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v23\\abc_color_highlight_material.xml",
-        "source": "E:\\home\\mwongela\\Desktop\\BetMoja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\color-v23\\abc_color_highlight_material.xml"
-    },
-    {
-        "merged": "E:\\home\\mwongela\\Desktop\\BetMoja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v23\\abc_tint_switch_track.xml",
-        "source": "E:\\home\\mwongela\\Desktop\\BetMoja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\color-v23\\abc_tint_switch_track.xml"
-    },
-    {
-        "merged": "E:\\home\\mwongela\\Desktop\\BetMoja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v23\\abc_btn_colored_borderless_text_material.xml",
-        "source": "E:\\home\\mwongela\\Desktop\\BetMoja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\color-v23\\abc_btn_colored_borderless_text_material.xml"
-    },
-    {
-        "merged": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v23\\abc_tint_seek_thumb.xml",
-        "source": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\color-v23\\abc_tint_seek_thumb.xml"
-    },
-    {
-        "merged": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v23\\abc_tint_btn_checkable.xml",
-        "source": "E:\\MOSES\\BM\\bet-moja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\color-v23\\abc_tint_btn_checkable.xml"
-    },
-    {
-        "merged": "E:\\home\\mwongela\\Desktop\\BetMoja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v23\\abc_tint_btn_checkable.xml",
-        "source": "E:\\home\\mwongela\\Desktop\\BetMoja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\color-v23\\abc_tint_btn_checkable.xml"
-    },
-    {
-        "merged": "E:\\home\\mwongela\\Desktop\\BetMoja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v23\\abc_tint_switch_thumb.xml",
-        "source": "E:\\home\\mwongela\\Desktop\\BetMoja\\updateChecker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0-beta1\\res\\color-v23\\abc_tint_switch_thumb.xml"
+        "merged": "E:\\Projects\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\release\\color-v23\\abc_color_highlight_material.xml",
+        "source": "C:\\Users\\Moses\\.android\\build-cache\\a0a3ae361420f6b80fc94fa7d16452f9b7688ee7\\output\\res\\color-v23\\abc_color_highlight_material.xml"
     }
 ]
