@@ -47,6 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/thumbnail"
         android:layout_toRightOf="@+id/thumbnail"
+        android:textColor="@color/buy_tip"
         android:textSize="@dimen/home_away"
         android:textStyle="bold" />
 

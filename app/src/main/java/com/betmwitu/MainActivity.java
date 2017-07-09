@@ -1,6 +1,7 @@
 package com.betmwitu;
 
 import android.Manifest;
+import android.annotation.TargetApi;
 import android.app.ProgressDialog;
 import android.content.ComponentName;
 import android.content.Context;
@@ -9,6 +10,8 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.res.AssetManager;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -19,6 +22,8 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -29,12 +34,14 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
@@ -65,6 +72,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 import mehdi.sakout.aboutpage.AboutPage;
 import mehdi.sakout.aboutpage.Element;
@@ -92,7 +100,13 @@ public class MainActivity extends AppCompatActivity {
     private Boolean DOING_REFRESH_ANIM = false;
     private Menu mymenu;
     private ProgressDialog pDialog;
-    private String IMEI="", MANUFACTURER="", MODEL="", ANDROID_VERSION="", APP_VERSION="";
+    private String IMEI = "", MANUFACTURER = "", MODEL = "", ANDROID_VERSION = "", APP_VERSION = "";
+
+    private AssetManager am = null;
+    private Typeface typeface_bold = null;
+    private Typeface typeface_regular = null;
+    private SpannableString subtitle = null;
+    private Button btnEmptyListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,7 +121,16 @@ public class MainActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
         dateSpinner = (Spinner) findViewById(R.id.datespinner);
 
-        getPhoneDetails();
+        am = getAssets();
+        typeface_bold = Typeface.createFromAsset(am,
+                String.format(Locale.US, "fonts/%s", "bariol_bold_webfont.ttf"));
+        typeface_regular = Typeface.createFromAsset(am,
+                String.format(Locale.US, "fonts/%s", "bariol_regular_webfont.ttf"));
+
+        subtitle = new SpannableString("Invest. Gamble. Win.");
+        subtitle.setSpan(typeface_regular, 0, subtitle.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        // getPhoneDetails();
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -151,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
 
                     AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
 
-                    LayoutInflater inflater =  getLayoutInflater();
+                    LayoutInflater inflater = getLayoutInflater();
                     View dialogView = inflater.inflate(R.layout.tip_talk, null);
                     builder1.setView(dialogView);
 
@@ -159,8 +182,12 @@ public class MainActivity extends AppCompatActivity {
                     TextView tip_country = (TextView) dialogView.findViewById(R.id.tip_country);
                     TextView tip_talk = (TextView) dialogView.findViewById(R.id.tip_talk);
 
+                    home_away.setTypeface(typeface_regular);
+                    tip_country.setTypeface(typeface_regular);
+                    tip_talk.setTypeface(typeface_regular);
+
                     home_away.setText(tv_home_away.getText().toString());
-                    tip_country.setText("Country: "+tv_tip_country.getText().toString());
+                    tip_country.setText("Country: " + tv_tip_country.getText().toString());
                     tip_talk.setText(talk);
 
                     builder1.setCancelable(true);
@@ -207,13 +234,15 @@ public class MainActivity extends AppCompatActivity {
 
                             AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
 
-                            LayoutInflater inflater =  getLayoutInflater();
+                            LayoutInflater inflater = getLayoutInflater();
                             View dialogView = inflater.inflate(R.layout.dialogue_layout, null);
                             builder1.setView(dialogView);
                             TextView dialogue_heading = (TextView) dialogView.findViewById(R.id.dialogue_heading);
                             TextView dialogue_message = (TextView) dialogView.findViewById(R.id.dialogue_message);
                             dialogue_heading.setText("Buy premium tip");
                             dialogue_message.setText("Confirm that you want to buy " + home_away + "'s premium tip @ ksh " + tip_price);
+                            dialogue_heading.setTypeface(typeface_regular);
+                            dialogue_message.setTypeface(typeface_regular);
 
                             builder1.setCancelable(true);
                             builder1.setPositiveButton("YES", new DialogInterface.OnClickListener() {
@@ -231,13 +260,15 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
 
-                            LayoutInflater inflater =  getLayoutInflater();
+                            LayoutInflater inflater = getLayoutInflater();
                             View dialogView = inflater.inflate(R.layout.dialogue_layout, null);
                             builder1.setView(dialogView);
                             TextView dialogue_heading = (TextView) dialogView.findViewById(R.id.dialogue_heading);
                             TextView dialogue_message = (TextView) dialogView.findViewById(R.id.dialogue_message);
                             dialogue_heading.setText("Insufficient account balance");
                             dialogue_message.setText("You need to top-up your account with ksh " + tip_price + " to be able to purchase this premium tip.");
+                            dialogue_heading.setTypeface(typeface_regular);
+                            dialogue_message.setTypeface(typeface_regular);
 
                             builder1.setCancelable(true);
                             builder1.setPositiveButton("Top up now", new DialogInterface.OnClickListener() {
@@ -262,13 +293,14 @@ public class MainActivity extends AppCompatActivity {
 
                         AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
 
-                        LayoutInflater inflater =  getLayoutInflater();
+                        LayoutInflater inflater = getLayoutInflater();
                         View dialogView = inflater.inflate(R.layout.dialogue_layout, null);
                         builder1.setView(dialogView);
                         TextView dialogue_heading = (TextView) dialogView.findViewById(R.id.dialogue_heading);
                         TextView dialogue_message = (TextView) dialogView.findViewById(R.id.dialogue_message);
-                      //  dialogue_heading.setText("Insufficient account balance");
+                        //  dialogue_heading.setText("Insufficient account balance");
                         dialogue_message.setText("You have to be logged in to purchase a premium tip.");
+                        dialogue_message.setTypeface(typeface_regular);
 
                         builder1.setCancelable(true);
                         builder1.setPositiveButton("Log me in", new DialogInterface.OnClickListener() {
@@ -314,7 +346,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
 
-                    LayoutInflater inflater =  getLayoutInflater();
+                    LayoutInflater inflater = getLayoutInflater();
                     View dialogView = inflater.inflate(R.layout.dialogue_layout, null);
                     builder1.setView(dialogView);
                     TextView dialogue_heading = (TextView) dialogView.findViewById(R.id.dialogue_heading);
@@ -339,6 +371,16 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }, 100);
+
+        actionBarSetup();
+    }
+
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    private void actionBarSetup() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            android.support.v7.app.ActionBar ab = getSupportActionBar();
+            ab.setSubtitle(subtitle);
+        }
     }
 
     public void getthemdata() {
@@ -347,7 +389,7 @@ public class MainActivity extends AppCompatActivity {
             new getTips().execute();
         } else {
             AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
-            LayoutInflater inflater =  getLayoutInflater();
+            LayoutInflater inflater = getLayoutInflater();
             View dialogView = inflater.inflate(R.layout.dialogue_layout, null);
             builder1.setView(dialogView);
             TextView dialogue_heading = (TextView) dialogView.findViewById(R.id.dialogue_heading);
@@ -374,50 +416,53 @@ public class MainActivity extends AppCompatActivity {
 
     public void popoulateDateSpinner(List<Dates> dateList) {
         List<String> spinnerDate = new ArrayList<String>();
-
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         DateFormat df2 = new SimpleDateFormat("E dd, MMM");
-        String dateToday = df2.format(Calendar.getInstance().getTime());
+        String dateToday = null;
+        Date startDate;
+        String newDateString = null;
 
         for (int i = 0; i < dateList.size(); i++) {
-            Date startDate;
-            String newDateString = null;
             try {
+                dateToday = df2.format(Calendar.getInstance().getTime());
                 startDate = df.parse(dateList.get(i).getDate());
                 newDateString = df2.format(startDate);
+                spinnerDate.add(newDateString);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-
-            spinnerDate.add(newDateString);
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                this, R.layout.spinner_item, spinnerDate);
+        try {
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                    this, R.layout.spinner_item, spinnerDate);
 
-        adapter.setDropDownViewResource(R.layout.spinner_item_drop_down);
-        dateSpinner.setAdapter(adapter);
+            adapter.setDropDownViewResource(R.layout.spinner_item_drop_down);
+            dateSpinner.setAdapter(adapter);
 
-        dateSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            dateSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
-            public void onItemSelected(AdapterView<?> arg0, View view, int position, long id) {
-                int item = dateSpinner.getSelectedItemPosition();
-                dateParam = dateList_Orig.get(item).getDate();
-                browseTips();
+                public void onItemSelected(AdapterView<?> arg0, View view, int position, long id) {
+                    int item = dateSpinner.getSelectedItemPosition();
+                    dateParam = dateList_Orig.get(item).getDate();
+                    browseTips();
+                }
+
+                public void onNothingSelected(AdapterView<?> arg0) {
+                }
+            });
+
+            if (dateToday != null) {
+                int spinnerPosition = adapter.getPosition(dateToday);
+                dateSpinner.setSelection(spinnerPosition);
+                try {
+                    dateParam = dateList_Orig.get(spinnerPosition).getDate();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
-
-            public void onNothingSelected(AdapterView<?> arg0) {
-            }
-        });
-
-        if (!dateToday.equals(null)) {
-            int spinnerPosition = adapter.getPosition(dateToday);
-            dateSpinner.setSelection(spinnerPosition);
-            try {
-                dateParam = dateList_Orig.get(spinnerPosition).getDate();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -426,7 +471,7 @@ public class MainActivity extends AppCompatActivity {
             new getTips().execute();
         } else {
             AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
-            LayoutInflater inflater =  getLayoutInflater();
+            LayoutInflater inflater = getLayoutInflater();
             View dialogView = inflater.inflate(R.layout.dialogue_layout, null);
             builder1.setView(dialogView);
             TextView dialogue_heading = (TextView) dialogView.findViewById(R.id.dialogue_heading);
@@ -514,7 +559,7 @@ public class MainActivity extends AppCompatActivity {
 //        HashMap<String, String> params = new HashMap<String, String>();
 //        params.put("date", dateParam);
 //
-//        JsonObjectRequest tipReq = new JsonObjectRequest(Request.Method.POST,  tip_url, new JSONObject(params),
+//        JsonObjectRequest tipReq = new JsonObjectRequest(Request.Method.POST, tip_url, new JSONObject(params),
 //                new Response.Listener<JSONObject>() {
 //                    @Override
 //                    public void onResponse(JSONObject response) {
@@ -601,7 +646,7 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_account) {
             if (!session.isUserLoggedIn()) {
                 AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
-                LayoutInflater inflater =  getLayoutInflater();
+                LayoutInflater inflater = getLayoutInflater();
                 View dialogView = inflater.inflate(R.layout.dialogue_layout, null);
                 builder1.setView(dialogView);
                 TextView dialogue_heading = (TextView) dialogView.findViewById(R.id.dialogue_heading);
@@ -679,8 +724,8 @@ public class MainActivity extends AppCompatActivity {
                 .addEmail("betmwitu@gmail.com")
                 // .addWebsite("http://www.sikumojaventures.com/")
                 //  .addFacebook("www.facebook.com/betmwitu")
-                .addTwitter("@betmwitu")
-                .addPlayStore("com.betmwitu")
+                //.addTwitter("@betmwitu")
+                .addPlayStore("com.sikumojaventures.betmwitu")
                 .addItem(getCopyRightsElement())
                 .create();
 
@@ -738,7 +783,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onShareClick(String tip) {
 
-        String downloadApp = "Download Bet Mwitu: https://play.google.com/store/apps/details?id=com.betmwitu";
+        String downloadApp = "Download Bet Mwitu: https://play.google.com/store/apps/details?id=com.sikumojaventures.betmwitu";
 
         List<Intent> targetShareIntents = new ArrayList<Intent>();
         Intent shareIntent = new Intent();
@@ -818,7 +863,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             if (cd.isConnectingToInternet()) {
-                new getDeviceLastSeen().execute();
+                // new getDeviceLastSeen().execute();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -934,6 +979,9 @@ public class MainActivity extends AppCompatActivity {
                 params.add(new BasicNameValuePair("date", dateParam));
                 params.add(new BasicNameValuePair("phone", session.getPhone()));
 
+                Log.e(TAG, "Date: " + dateParam);
+                Log.e(TAG, "Phone: " + session.getPhone());
+
                 JSONObject json = jsonParser.makeHttpRequest(tip_url, "POST", params);
 
                 success = json.getInt(Config.TAG_SUCCESS);
@@ -992,8 +1040,61 @@ public class MainActivity extends AppCompatActivity {
             stopRefreshAnim();
             adapter.notifyDataSetChanged();
             if (file_url != null) {
-                //  Toast.makeText(MainActivity.this, file_url, Toast.LENGTH_LONG).show();
+                // Toast.makeText(MainActivity.this, file_url, Toast.LENGTH_LONG).show();
             }
         }
+    }
+
+    @Override
+    public void onContentChanged() {
+        super.onContentChanged();
+        View btnEmptyListView = findViewById(R.id.btnEmptyListView);
+        btnEmptyListView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!DOING_REFRESH_ANIM)
+                    getthemdata();
+            }
+        });
+        ListView list = (ListView) findViewById(R.id.list);
+        list.setEmptyView(btnEmptyListView);
+    }
+
+    public void onResume() {
+        super.onResume();
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (cd.isConnectingToInternet()) {
+                    getthemdata();
+                } else {
+                    AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
+
+                    LayoutInflater inflater = getLayoutInflater();
+                    View dialogView = inflater.inflate(R.layout.dialogue_layout, null);
+                    builder1.setView(dialogView);
+                    TextView dialogue_heading = (TextView) dialogView.findViewById(R.id.dialogue_heading);
+                    TextView dialogue_message = (TextView) dialogView.findViewById(R.id.dialogue_message);
+                    dialogue_heading.setText("Error");
+                    dialogue_message.setText("You cannot connect to the internet.");
+
+                    builder1.setCancelable(true);
+
+                    builder1.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            getthemdata();
+                        }
+                    });
+                    builder1.setNegativeButton("Close app", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                        }
+                    });
+                    AlertDialog alert11 = builder1.create();
+                    alert11.show();
+                }
+            }
+        }, 300);
     }
 }

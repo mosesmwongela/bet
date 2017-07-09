@@ -27,8 +27,6 @@
 
     </RelativeLayout>
 
-
-
     <ListView
         android:id="@+id/list"
         android:layout_width="fill_parent"
@@ -37,5 +35,17 @@
         android:dividerHeight="1dp"
         android:listSelector="@drawable/list_row_selector"
         android:layout_below="@+id/spinner_background" />
+
+    <Button
+        android:id="@+id/btnEmptyListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:layout_margin="4dp"
+        android:padding="8dp"
+        android:textSize="@dimen/result"
+        android:text="Refresh"
+        />
 
 </RelativeLayout>

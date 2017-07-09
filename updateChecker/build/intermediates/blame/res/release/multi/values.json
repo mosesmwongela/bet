@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "E:\\Projects\\bet-moja\\updateChecker\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values\\values.xml",
+        "outputFile": "C:\\Users\\Moses\\AndroidStudioProjects\\bet-moja\\updateChecker\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values\\values.xml",
         "map": [
             {
                 "to": {
@@ -3640,7 +3640,7 @@
                     "endOffset": 31215
                 },
                 "from": {
-                    "file": "E:\\Projects\\bet-moja\\updateChecker\\src\\main\\res\\values\\strings.xml",
+                    "file": "C:\\Users\\Moses\\AndroidStudioProjects\\bet-moja\\updateChecker\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -3659,7 +3659,7 @@
                     "endOffset": 31275
                 },
                 "from": {
-                    "file": "E:\\Projects\\bet-moja\\updateChecker\\src\\main\\res\\values\\strings.xml",
+                    "file": "C:\\Users\\Moses\\AndroidStudioProjects\\bet-moja\\updateChecker\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -3678,7 +3678,7 @@
                     "endOffset": 31329
                 },
                 "from": {
-                    "file": "E:\\Projects\\bet-moja\\updateChecker\\src\\main\\res\\values\\strings.xml",
+                    "file": "C:\\Users\\Moses\\AndroidStudioProjects\\bet-moja\\updateChecker\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -3697,7 +3697,7 @@
                     "endOffset": 31385
                 },
                 "from": {
-                    "file": "E:\\Projects\\bet-moja\\updateChecker\\src\\main\\res\\values\\strings.xml",
+                    "file": "C:\\Users\\Moses\\AndroidStudioProjects\\bet-moja\\updateChecker\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -3716,7 +3716,7 @@
                     "endOffset": 31484
                 },
                 "from": {
-                    "file": "E:\\Projects\\bet-moja\\updateChecker\\src\\main\\res\\values\\strings.xml",
+                    "file": "C:\\Users\\Moses\\AndroidStudioProjects\\bet-moja\\updateChecker\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -3735,7 +3735,7 @@
                     "endOffset": 31535
                 },
                 "from": {
-                    "file": "E:\\Projects\\bet-moja\\updateChecker\\src\\main\\res\\values\\strings.xml",
+                    "file": "C:\\Users\\Moses\\AndroidStudioProjects\\bet-moja\\updateChecker\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -3754,7 +3754,7 @@
                     "endOffset": 31591
                 },
                 "from": {
-                    "file": "E:\\Projects\\bet-moja\\updateChecker\\src\\main\\res\\values\\strings.xml",
+                    "file": "C:\\Users\\Moses\\AndroidStudioProjects\\bet-moja\\updateChecker\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -3773,7 +3773,7 @@
                     "endOffset": 31655
                 },
                 "from": {
-                    "file": "E:\\Projects\\bet-moja\\updateChecker\\src\\main\\res\\values\\strings.xml",
+                    "file": "C:\\Users\\Moses\\AndroidStudioProjects\\bet-moja\\updateChecker\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,

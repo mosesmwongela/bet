@@ -21,27 +21,16 @@
         android:padding="10dp"
         >
 
-        <TextView
-            android:id="@+id/etTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="-2dp"
-            android:gravity="left"
-            android:text="Create a Bet Mwitu account"
-            android:textColorHint="#bbbbbb" />
-
         <EditText
-            android:id="@+id/etFullName"
+            android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-2dp"
             android:background="@drawable/edittext_top_bg"
-            android:drawableLeft="@mipmap/ic_action_person"
-            android:hint="Full Name"
-            android:inputType="textCapWords"
-            android:maxLength="25"
+            android:textSize="@dimen/result"
+            android:hint="Email address"
+            android:layout_marginTop="8dp"
             android:padding="8dp"
+            android:inputType="textEmailAddress"
             android:textColorHint="#bbbbbb" />
 
         <EditText
@@ -50,11 +39,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="@drawable/edittext_top_bg"
-            android:drawableLeft="@mipmap/ic_action_phone"
+            android:textSize="@dimen/result"
             android:hint="Phone number"
             android:maxLength="10"
             android:padding="8dp"
-            android:phoneNumber="true"
+            android:inputType="phone"
             android:textColorHint="#bbbbbb" />
 
         <EditText
@@ -63,9 +52,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="@drawable/edittext_top_bg"
-            android:drawableLeft="@mipmap/ic_action_pass"
-            android:hint="Create Password"
-            android:maxLength="20"
+            android:textSize="@dimen/result"
+            android:hint="Create a password"
             android:padding="8dp"
             android:password="true"
             android:textColorHint="#bbbbbb" />
@@ -76,6 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
+            android:textSize="@dimen/result"
             android:padding="8dp"
             android:text="Create Account"
             />
@@ -87,6 +76,7 @@
             android:layout_marginTop="-2dp"
             android:gravity="center"
             android:padding="10dp"
+            android:textSize="@dimen/result"
             android:text="Already have an account?"
             android:textColorHint="#bbbbbb" />
 
@@ -96,6 +86,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:padding="8dp"
+            android:textSize="@dimen/result"
             android:text="Login"
             />
 

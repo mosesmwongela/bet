@@ -21,26 +21,16 @@
         android:padding="10dp"
         >
 
-        <TextView
-            android:id="@+id/etTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="-2dp"
-            android:gravity="left"
-            android:text="Please Login"
-            android:textColorHint="#bbbbbb" />
-
         <EditText
             android:id="@+id/etPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_top_bg"
-            android:drawableLeft="@mipmap/ic_action_phone"
             android:hint="Phone number"
+            android:textSize="@dimen/result"
             android:maxLength="10"
             android:padding="8dp"
-            android:phoneNumber="true"
+            android:inputType="phone"
             android:textColorHint="#bbbbbb" />
 
         <EditText
@@ -49,9 +39,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="@drawable/edittext_top_bg"
-            android:drawableLeft="@mipmap/ic_action_pass"
             android:hint="Password"
-            android:maxLength="10"
+            android:textSize="@dimen/result"
             android:padding="8dp"
             android:password="true"
             android:textColorHint="#bbbbbb" />
@@ -63,6 +52,7 @@
             android:layout_margin="4dp"
             android:maxLength="6"
             android:padding="8dp"
+            android:textSize="@dimen/result"
             android:text="Login"
             />
 
@@ -72,6 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="-2dp"
             android:gravity="center"
+            android:textSize="@dimen/result"
             android:padding="10dp"
             android:text="Don't have an account?"
             android:textColorHint="#bbbbbb" />
@@ -82,7 +73,18 @@
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:padding="8dp"
+            android:textSize="@dimen/result"
             android:text="Quick registration"
+            />
+
+        <Button
+            android:id="@+id/btnForgotPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:padding="8dp"
+            android:textSize="@dimen/result"
+            android:text="I forgot my password :-("
             />
     </LinearLayout>
     </ScrollView>

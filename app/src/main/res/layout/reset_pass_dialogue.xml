@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_row_selector"
+    android:padding="8dp" >
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/home_away"
+        android:layout_marginBottom="4dp"
+        android:text="Enter the email address you used to create your account. We'll send you an email with your password." />
+
+    <EditText
+        android:id="@+id/etEmailTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_top_bg"
+        android:hint="Email address"
+        android:textSize="@dimen/result"
+        android:layout_below="@id/header"
+        android:padding="8dp"
+        android:inputType="textEmailAddress"
+        android:textColorHint="#bbbbbb" />
+
+</RelativeLayout>

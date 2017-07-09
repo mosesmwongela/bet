@@ -11,7 +11,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textSize="@dimen/home_away"
-        android:textStyle="bold" />
+        android:textColor="@color/buy_tip" />
 
     <!-- Dialogue message -->
     <TextView

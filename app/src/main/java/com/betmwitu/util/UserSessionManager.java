@@ -10,6 +10,7 @@ public class UserSessionManager {
 
     public static final String KEY_USER_NAME = "username";
     public static final String KEY_PHONE = "phone";
+    public static final String KEY_ACC_BALANCE = "account_balance";
     private static final String PREFER_NAME = "1315190519";
     private static final String IS_USER_LOGIN = "IsUserLoggedIn";
     SharedPreferences pref;
@@ -28,6 +29,15 @@ public class UserSessionManager {
         editor.putString(KEY_USER_NAME, phone);
         editor.putString(KEY_PHONE, phone);
         editor.commit();
+    }
+
+    public void createAccBalanceSession(String account_balance){
+        editor.putString(KEY_ACC_BALANCE, account_balance);
+        editor.commit();
+    }
+
+    public String getAccountBalance(){
+        return pref.getString(KEY_ACC_BALANCE, null);
     }
 
     public String getUserName(){

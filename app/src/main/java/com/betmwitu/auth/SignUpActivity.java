@@ -1,11 +1,17 @@
 package com.betmwitu.auth;
 
+import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.res.AssetManager;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -27,6 +33,9 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class SignUpActivity extends ActionBarActivity implements OnClickListener{
@@ -34,11 +43,16 @@ public class SignUpActivity extends ActionBarActivity implements OnClickListener
     JSONParser jsonParser = new JSONParser();
     UserSessionManager session;
     ConnectionDetector cd;
-    private EditText etFullName, etPhone, etPass;
+    private EditText etEmail, etPhone, etPass;
     private Button btnSingUp;
     private Button btnLogin;
-    private String strFullName=null, strPhone=null, strPass=null, strReferee=null;
+    private String strEmail=null, strPhone=null, strPass=null, strReferee=null;
     private ProgressDialog pDialog;
+
+    private AssetManager am = null;
+    private Typeface typeface_bold = null;
+    private Typeface typeface_regular = null;
+    private SpannableString subtitle = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,13 +62,37 @@ public class SignUpActivity extends ActionBarActivity implements OnClickListener
         session = new UserSessionManager(getApplicationContext());
         cd = new ConnectionDetector(getApplicationContext());
 
-        etFullName = (EditText)findViewById(R.id.etFullName);
+        am = getAssets();
+        typeface_bold = Typeface.createFromAsset(am,
+                String.format(Locale.US, "fonts/%s", "bariol_bold_webfont.ttf"));
+        typeface_regular = Typeface.createFromAsset(am,
+                String.format(Locale.US, "fonts/%s", "bariol_regular_webfont.ttf"));
+
+        subtitle = new SpannableString("Create an account with us");
+        subtitle.setSpan(typeface_regular, 0, subtitle.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        etEmail = (EditText)findViewById(R.id.etEmail);
+        etEmail.setTypeface(typeface_regular);
         etPhone = (EditText)findViewById(R.id.etPhone);
+        etPhone.setTypeface(typeface_regular);
         etPass = (EditText)findViewById(R.id.etPass);
+        etPass.setTypeface(typeface_regular);
         btnSingUp = (Button)findViewById(R.id.btnSingUp);
+        btnSingUp.setTypeface(typeface_regular);
         btnLogin = (Button)findViewById(R.id.btnLogin);
+        btnLogin.setTypeface(typeface_regular);
 
         registerButtonListeners();
+
+        actionBarSetup();
+    }
+
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    private void actionBarSetup() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            android.support.v7.app.ActionBar ab = getSupportActionBar();
+            ab.setSubtitle(subtitle);
+        }
     }
 
     private void registerButtonListeners() {
@@ -78,25 +116,32 @@ public class SignUpActivity extends ActionBarActivity implements OnClickListener
         finish();
     }
 
+    public boolean validateEmail(String email) {
+        Pattern pattern;
+        Matcher matcher;
+        String EMAIL_PATTERN = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+        pattern = Pattern.compile(EMAIL_PATTERN);
+        matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
 
     public void SignInEvent() {
-        strFullName = etFullName.getText().toString();
-        strPhone = etPhone.getText().toString();
-        strPass = etPass.getText().toString();
+        strEmail = etEmail.getText().toString().trim();
+        strPhone = etPhone.getText().toString().trim();
+        strPass = etPass.getText().toString().trim();
 
         int errors = 0;
-        if(etFullName.equals("")||(etFullName==null)){
+        if(strEmail.equals("")||(strEmail==null)){
             errors++;
-            errorToast("Enter your full name");
+            errorToast("Enter your email address");
         }
-        if(etFullName.length()<3&&(errors==0)){
+
+        if (!validateEmail(strEmail)&&(errors==0)) {
+            errorToast("Please enter a valid email address");
             errors++;
-            errorToast("Your name should be least 3 characters long");
         }
-        if(etFullName.length()>40&&(errors==0)){
-            errors++;
-            errorToast("Your name can have a maximum of 40 characters");
-        }
+
         if((strPhone.equalsIgnoreCase("")||(strPhone==null))&&(errors==0)){
             errors++;
             errorToast("Enter your phone number");
@@ -178,8 +223,8 @@ public class SignUpActivity extends ActionBarActivity implements OnClickListener
         protected void onPreExecute() {
             super.onPreExecute();
             pDialog = new ProgressDialog(SignUpActivity.this);
-            pDialog.setTitle("Signing up");
-            pDialog.setMessage("Hi, "+strFullName+". please wait as we create your account...");
+           // pDialog.setTitle("Signing up");
+            pDialog.setMessage("connecting to server...");
 
 //            LayoutInflater inflater =  getLayoutInflater();
 //            View dialogView = inflater.inflate(R.layout.dialogue_layout, null);
@@ -199,9 +244,10 @@ public class SignUpActivity extends ActionBarActivity implements OnClickListener
             int success;
             try {
                 List<NameValuePair> params = new ArrayList<NameValuePair>();
-                params.add(new BasicNameValuePair("fname", strFullName));
+                params.add(new BasicNameValuePair("fname", ""));
                 params.add(new BasicNameValuePair("phone", strPhone));
                 params.add(new BasicNameValuePair("pass", strPass));
+                params.add(new BasicNameValuePair("email", strEmail));
 
                 JSONObject json = jsonParser.makeHttpRequest(Config.SIGNUP_URL, "POST", params);
 
@@ -209,7 +255,7 @@ public class SignUpActivity extends ActionBarActivity implements OnClickListener
                 if (success == 1) {
 
                     // Creating user login session
-                    session.createUserLoginSession(strFullName,strPhone);
+                    session.createUserLoginSession(strEmail,strPhone);
 
 //                    Intent i = new Intent(SignUpActivity.this, MainActivity.class);
 //                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

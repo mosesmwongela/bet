@@ -12,4 +12,6 @@ public class Config {
 
     public static final String SIGNUP_URL = "http://sikumojaventures.com/betmwitu/registration.php";
 
+    public static final String FORGORT_PASS_URL = "http://sikumojaventures.com/betmwitu/reset_pass.php";
+
 }

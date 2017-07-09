@@ -1,12 +1,16 @@
 package com.betmwitu;
 
+import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.res.AssetManager;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.content.ContextCompat;
@@ -45,6 +49,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 import mehdi.sakout.aboutpage.AboutPage;
 import mehdi.sakout.aboutpage.Element;
@@ -57,7 +62,7 @@ public class AccountActivity extends AppCompatActivity {
 
     private static final String account_url = "http://sikumojaventures.com/betmwitu/get_transactions.php";
     private static final String trans_code_url = "http://sikumojaventures.com/betmwitu/transcode.php";
-    TextView accountbalance;
+    TextView accountbalance, phonenumberTxt, accountbalanceLbl, instruction1;
     private ActionBar actionBar;
     private ConnectionDetector cd;
     private UserSessionManager session;
@@ -72,21 +77,45 @@ public class AccountActivity extends AppCompatActivity {
     private JSONParser jsonParser = new JSONParser();
     private ProgressDialog pDialog;
     private ListView listView;
+    private LinearLayout usernameLayout;
+
+    private AssetManager am = null;
+    private Typeface typeface_bold = null;
+    private Typeface typeface_regular = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
 
+        am = getAssets();
+        typeface_bold = Typeface.createFromAsset(am,
+                String.format(Locale.US, "fonts/%s", "bariol_bold_webfont.ttf"));
+        typeface_regular = Typeface.createFromAsset(am,
+                String.format(Locale.US, "fonts/%s", "bariol_regular_webfont.ttf"));
+
         cd = new ConnectionDetector(getApplicationContext());
         session = new UserSessionManager(getApplicationContext());
 
         LinearLayout profile_card = (LinearLayout) findViewById(R.id.profile_card);
         TextView username = (TextView) findViewById(R.id.usernameTxt);
+        username.setTypeface(typeface_regular);
         TextView phonenumber = (TextView) findViewById(R.id.phonenumberTxt);
+        phonenumber.setTypeface(typeface_bold);
         accountbalance = (TextView) findViewById(R.id.accountbalanceTxt);
+        accountbalance.setTypeface(typeface_bold);
         etTransCode = (EditText) findViewById(R.id.etTransCode);
+        etTransCode.setTypeface(typeface_regular);
         Button btnSubmitTransCode = (Button) findViewById(R.id.btnSubmitTransCode);
+        btnSubmitTransCode.setTypeface(typeface_regular);
+        LinearLayout usernameLayout = (LinearLayout) findViewById(R.id.usernameLayout);
+
+        phonenumberTxt = (TextView) findViewById(R.id.phonenumber);
+        accountbalanceLbl = (TextView) findViewById(R.id.accountbalance);
+        instruction1  =(TextView) findViewById(R.id.instruction1);
+        phonenumberTxt.setTypeface(typeface_regular);
+        accountbalanceLbl.setTypeface(typeface_regular);
+        instruction1.setTypeface(typeface_regular);
 
         if (!session.isUserLoggedIn()) {
             profile_card.setVisibility(View.GONE);
@@ -97,6 +126,7 @@ public class AccountActivity extends AppCompatActivity {
         }
 
         btnTopUpNow = (Button) findViewById(R.id.btnTopUpNow);
+        btnTopUpNow.setTypeface(typeface_regular);
         btnTopUpNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -133,6 +163,17 @@ public class AccountActivity extends AppCompatActivity {
                 }
             }
         }, 100);
+
+        usernameLayout.setVisibility(View.GONE);
+        actionBarSetup();
+    }
+
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    private void actionBarSetup() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            android.support.v7.app.ActionBar ab = getSupportActionBar();
+            ab.setSubtitle("Profile. Top up. Accounts.");
+        }
     }
 
     private void sendTransactionCode() {
@@ -154,8 +195,8 @@ public class AccountActivity extends AppCompatActivity {
             Intent stk = getPackageManager().getLaunchIntentForPackage("com.android.stk");
             if (stk != null)
                 startActivity(stk);
-            Intent intent = new Intent(this, SystemAlertWindowService.class);
-            startService(intent);
+           // Intent intent = new Intent(this, SystemAlertWindowService.class);
+           // startService(intent);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -392,6 +433,8 @@ public class AccountActivity extends AppCompatActivity {
                             acc.setTrans_amount(obj.getString("trans_amount"));
                             acc.setDesc(obj.getString("trans_desc"));
 
+                            session.updateAccountBalance(obj.getString("account_balance"));
+
                             accountList.add(acc);
 
                         } catch (JSONException e) {
@@ -412,6 +455,8 @@ public class AccountActivity extends AppCompatActivity {
             }
             adapter.notifyDataSetChanged();
             stopRefreshAnim();
+
+            accountbalance.setText(session.getAccountBalance());
         }
     }
 
@@ -438,8 +483,8 @@ public class AccountActivity extends AppCompatActivity {
                 .addEmail("betmwitu@gmail.com")
                 // .addWebsite("http://www.sikumojaventures.com/")
                // .addFacebook("www.facebook.com/betmwitu")
-                .addTwitter("@betmwitu")
-                .addPlayStore("com.betmwitu")
+               // .addTwitter("@betmwitu")
+                .addPlayStore("com.sikumojaventures.betmwitu")
                 .addItem(getCopyRightsElement())
                 .create();
 
@@ -465,5 +510,21 @@ public class AccountActivity extends AppCompatActivity {
             }
         });
         return copyRightsElement;
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (cd.isConnectingToInternet()) {
+                    new getTransactions().execute();
+                } else {
+                    Toast.makeText(AccountActivity.this, "Failed to connect to the internet", Toast.LENGTH_LONG).show();
+                }
+            }
+        }, 300);
     }
 }

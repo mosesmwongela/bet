@@ -30,20 +30,19 @@ public class IntroActivity extends AppIntro {
 
         addSlide(AppIntroFragment.newInstance(
                 "Bet Mwitu",
-                "Because gambling is an investment.",
+                "Invest. Gamble. Win.",
                 R.drawable.my_logo,
                 getResources().getColor(R.color.primary_dark)));
 
         addSlide(AppIntroFragment.newInstance(
                 "Quality Betting Tips",
-                "On a daily basis, we will provide you with quality betting tips. Some are free, " +
-                        "but the big boys roll with the max-profit premium tips.",
+                "Daily quality betting tips.",
                 R.drawable.this_is_how_you_dance,
                 getResources().getColor(R.color.primary_dark)));
 
         addSlide(AppIntroFragment.newInstance(
                 "Free Tips",
-                "You love free stuff? We will grow your betting skills with a set of free tips.",
+                "Watch out for Freebie Friday!",
                 R.drawable.free_stuff,
                 getResources().getColor(R.color.primary_dark)));
 
