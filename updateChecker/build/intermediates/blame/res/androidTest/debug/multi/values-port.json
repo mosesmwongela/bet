@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "C:\\Users\\Moses\\AndroidStudioProjects\\bet-moja\\updateChecker\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-port\\values-port.xml",
+        "outputFile": "/root/Desktop/Bet Mwitu/bet-moja/C:\\Users\\Moses\\AndroidStudioProjects\\bet-moja\\updateChecker\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-port\\values-port.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,31 @@
                     "endOffset": 106
                 },
                 "from": {
-                    "file": "C:\\Users\\Moses\\.android\\build-cache\\a0a3ae361420f6b80fc94fa7d16452f9b7688ee7\\output\\res\\values-port\\values-port.xml",
+                    "file": "/root/Desktop/Bet Mwitu/bet-moja/C:\\Users\\Moses\\.android\\build-cache\\a0a3ae361420f6b80fc94fa7d16452f9b7688ee7\\output\\res\\values-port\\values-port.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 55,
+                        "endOffset": 106
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "/root/Desktop/Bet Mwitu/bet-moja/updateChecker/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-port/values-port.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 55,
+                    "endOffset": 106
+                },
+                "from": {
+                    "file": "/root/.android/build-cache/1f6d6c84791fd346b27e6eeb0d67ea47c47078c4/output/res/values-port/values-port.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,

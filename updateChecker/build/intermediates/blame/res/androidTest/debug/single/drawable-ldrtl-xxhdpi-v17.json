@@ -1,14 +1,26 @@
 [
     {
-        "merged": "C:\\Users\\Moses\\AndroidStudioProjects\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-ldrtl-xxhdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png",
-        "source": "C:\\Users\\Moses\\.android\\build-cache\\a0a3ae361420f6b80fc94fa7d16452f9b7688ee7\\output\\res\\drawable-ldrtl-xxhdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png"
+        "merged": "/root/Desktop/Bet Mwitu/bet-moja/C:\\Users\\Moses\\AndroidStudioProjects\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-ldrtl-xxhdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png",
+        "source": "/root/Desktop/Bet Mwitu/bet-moja/C:\\Users\\Moses\\.android\\build-cache\\a0a3ae361420f6b80fc94fa7d16452f9b7688ee7\\output\\res\\drawable-ldrtl-xxhdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
-        "merged": "C:\\Users\\Moses\\AndroidStudioProjects\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-ldrtl-xxhdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png",
-        "source": "C:\\Users\\Moses\\.android\\build-cache\\a0a3ae361420f6b80fc94fa7d16452f9b7688ee7\\output\\res\\drawable-ldrtl-xxhdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
+        "merged": "/root/Desktop/Bet Mwitu/bet-moja/C:\\Users\\Moses\\AndroidStudioProjects\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-ldrtl-xxhdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png",
+        "source": "/root/Desktop/Bet Mwitu/bet-moja/C:\\Users\\Moses\\.android\\build-cache\\a0a3ae361420f6b80fc94fa7d16452f9b7688ee7\\output\\res\\drawable-ldrtl-xxhdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
-        "merged": "C:\\Users\\Moses\\AndroidStudioProjects\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-ldrtl-xxhdpi-v17\\abc_spinner_mtrl_am_alpha.9.png",
-        "source": "C:\\Users\\Moses\\.android\\build-cache\\a0a3ae361420f6b80fc94fa7d16452f9b7688ee7\\output\\res\\drawable-ldrtl-xxhdpi-v17\\abc_spinner_mtrl_am_alpha.9.png"
+        "merged": "/root/Desktop/Bet Mwitu/bet-moja/updateChecker/build/intermediates/res/merged/androidTest/debug/drawable-ldrtl-xxhdpi-v17/abc_spinner_mtrl_am_alpha.9.png",
+        "source": "/root/.android/build-cache/1f6d6c84791fd346b27e6eeb0d67ea47c47078c4/output/res/drawable-ldrtl-xxhdpi-v17/abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "/root/Desktop/Bet Mwitu/bet-moja/C:\\Users\\Moses\\AndroidStudioProjects\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-ldrtl-xxhdpi-v17\\abc_spinner_mtrl_am_alpha.9.png",
+        "source": "/root/Desktop/Bet Mwitu/bet-moja/C:\\Users\\Moses\\.android\\build-cache\\a0a3ae361420f6b80fc94fa7d16452f9b7688ee7\\output\\res\\drawable-ldrtl-xxhdpi-v17\\abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "/root/Desktop/Bet Mwitu/bet-moja/updateChecker/build/intermediates/res/merged/androidTest/debug/drawable-ldrtl-xxhdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png",
+        "source": "/root/.android/build-cache/1f6d6c84791fd346b27e6eeb0d67ea47c47078c4/output/res/drawable-ldrtl-xxhdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/root/Desktop/Bet Mwitu/bet-moja/updateChecker/build/intermediates/res/merged/androidTest/debug/drawable-ldrtl-xxhdpi-v17/abc_ic_menu_cut_mtrl_alpha.png",
+        "source": "/root/.android/build-cache/1f6d6c84791fd346b27e6eeb0d67ea47c47078c4/output/res/drawable-ldrtl-xxhdpi-v17/abc_ic_menu_cut_mtrl_alpha.png"
     }
 ]
