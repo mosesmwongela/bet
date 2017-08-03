@@ -20,7 +20,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.betmwitu.R;
+import com.sikumojaventures.betmwitu.R;
 import com.betmwitu.db.UserSessionManager;
 import com.betmwitu.util.Config;
 import com.betmwitu.util.ConnectionDetector;

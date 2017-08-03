@@ -39,6 +39,7 @@ import com.betmwitu.util.Config;
 import com.betmwitu.util.ConnectionDetector;
 import com.betmwitu.util.JSONParser;
 import com.betmwitu.util.SystemAlertWindowService;
+import com.sikumojaventures.betmwitu.R;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;

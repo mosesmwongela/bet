@@ -12,7 +12,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.betmwitu.R;
+import com.sikumojaventures.betmwitu.R;
 
 /**
  * Created by mwongela on 12/20/16.

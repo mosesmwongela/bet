@@ -3,10 +3,13 @@ package com.betmwitu;
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -19,6 +22,7 @@ import android.os.Handler;
 import android.os.Parcelable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
@@ -49,14 +53,17 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.betmwitu.app.AppController;
 import com.betmwitu.auth.LoginActivity;
 import com.betmwitu.db.UserSessionManager;
+import com.betmwitu.fcm.Config;
+import com.betmwitu.fcm.NotificationUtils;
 import com.betmwitu.model.CustomListAdapter;
 import com.betmwitu.model.Dates;
 import com.betmwitu.model.Tip;
-import com.betmwitu.util.Config;
 import com.betmwitu.util.ConnectionDetector;
 import com.betmwitu.util.JSONParser;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.rampo.updatechecker.UpdateChecker;
 import com.rampo.updatechecker.notice.Notice;
+import com.sikumojaventures.betmwitu.R;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -107,6 +114,8 @@ public class MainActivity extends AppCompatActivity {
     private Typeface typeface_regular = null;
     private SpannableString subtitle = null;
     private Button btnEmptyListView;
+
+    private BroadcastReceiver mRegistrationBroadcastReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -373,7 +382,50 @@ public class MainActivity extends AppCompatActivity {
         }, 100);
 
         actionBarSetup();
+
+        mRegistrationBroadcastReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+
+                Log.e(TAG, "intent.getAction() " + intent.getAction());
+
+                // checking for type intent filter
+                if (intent.getAction().equals(Config.REGISTRATION_COMPLETE)) {
+                    // gcm successfully registered
+                    // now subscribe to `global` topic to receive app wide notifications
+                    FirebaseMessaging.getInstance().subscribeToTopic(Config.TOPIC_GLOBAL);
+
+                    displayFirebaseRegId();
+
+                } else if (intent.getAction().equals(Config.PUSH_NOTIFICATION)) {
+                    // new push notification is received
+
+                    String message = intent.getStringExtra("message");
+
+                    Toast.makeText(getApplicationContext(), "Push notification: " + message, Toast.LENGTH_LONG).show();
+
+                    //txtMessage.setText(message);
+                }
+            }
+        };
+
+        displayFirebaseRegId();
     }
+
+    // Fetches reg id from shared preferences
+    // and displays on the screen
+    private void displayFirebaseRegId() {
+        SharedPreferences pref = getApplicationContext().getSharedPreferences(Config.SHARED_PREF, 0);
+        String regId = pref.getString("regId", null);
+
+        Log.e(TAG, "Firebase reg id: " + regId);
+
+//        if (!TextUtils.isEmpty(regId))
+//            txtRegId.setText("Firebase Reg Id: " + regId);
+//        else
+//            txtRegId.setText("Firebase Reg Id is not received yet!");
+    }
+
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private void actionBarSetup() {
@@ -1068,6 +1120,18 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 if (cd.isConnectingToInternet()) {
                     getthemdata();
+
+                    // register GCM registration complete receiver
+                    LocalBroadcastManager.getInstance(MainActivity.this).registerReceiver(mRegistrationBroadcastReceiver,
+                            new IntentFilter(Config.REGISTRATION_COMPLETE));
+
+                    // register new push message receiver
+                    // by doing this, the activity will be notified each time a new message arrives
+                    LocalBroadcastManager.getInstance(MainActivity.this).registerReceiver(mRegistrationBroadcastReceiver,
+                            new IntentFilter(Config.PUSH_NOTIFICATION));
+
+                    // clear the notification area when the app is opened
+                    NotificationUtils.clearNotifications(getApplicationContext());
                 } else {
                     AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
 
@@ -1096,5 +1160,11 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }, 300);
+    }
+
+    @Override
+    protected void onPause() {
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(mRegistrationBroadcastReceiver);
+        super.onPause();
     }
 }

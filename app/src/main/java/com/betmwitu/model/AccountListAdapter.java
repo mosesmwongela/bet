@@ -12,7 +12,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.betmwitu.R;
+
+import com.sikumojaventures.betmwitu.R;
 
 import java.util.List;
 import java.util.Locale;
