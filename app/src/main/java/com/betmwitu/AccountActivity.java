@@ -264,10 +264,10 @@ public class AccountActivity extends AppCompatActivity {
             count = 0;
             finish();
         } else {
-            Intent i = new Intent(AccountActivity.this, MainActivity.class);
-            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(i);
+//            Intent i = new Intent(AccountActivity.this, MainActivity.class);
+//            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            startActivity(i);
             finish();
             count++;
         }

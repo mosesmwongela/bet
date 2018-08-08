@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "670412371021",
-    "firebase_url": "https://bet-mwitu-709dd.firebaseio.com",
-    "project_id": "bet-mwitu-709dd",
-    "storage_bucket": "bet-mwitu-709dd.appspot.com"
+    "project_number": "589020774622",
+    "firebase_url": "https://bet-mwitu-5586c.firebaseio.com",
+    "project_id": "bet-mwitu-5586c",
+    "storage_bucket": "bet-mwitu-5586c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:670412371021:android:91941103214087e9",
+        "mobilesdk_app_id": "1:589020774622:android:91941103214087e9",
         "android_client_info": {
           "package_name": "com.sikumojaventures.betmwitu"
         }
       },
       "oauth_client": [
         {
-          "client_id": "670412371021-1c1s3hifv3hafprj7bg7emjsa1hke676.apps.googleusercontent.com",
+          "client_id": "589020774622-p8avpjo9j8ebhtgplkne1jfrqclc9lgv.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAXpsm9JiCDZG3yY0z9wpIhJhS0mfDgvZ4"
+          "current_key": "AIzaSyAXvUuyYYA-RzG8FhlSpVk5-XKK4JRvMDo"
         }
       ],
       "services": {

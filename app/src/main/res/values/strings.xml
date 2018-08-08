@@ -6,16 +6,25 @@
     <string name="action_account">My account</string>
     <string name="action_refresh">Refresh</string>
 
-    <string name="how_to_top_up"><b>How to top-up:\n</b>Send a minimum of ksh 100 to our till Number: <b>560921</b>. When you receive the M-Pesa confirmation message, send us the M-Pesa transaction code.</string>
+    <string name="how_to_top_up"><b>How to top-up:\n</b>Send the amount you want credit your account with to our till Number: <b>560921</b>. Your account will be updated and you\'ll get a receipt on email.</string>
 
     <string name="username">Username:\t\t\t</string>
     <string name="phonenumber">Phone number:\t</string>
     <string name="accountbalance">Account balance:\t</string>
     <string name="not_yet_implemented">not yet implemented</string>
     <string name="till_number">123456</string>
-    <string name="action_logout">Logout</string>
-    <string name="action_about">About Us</string>
+    <string name="action_logout">logout</string>
+    <string name="action_about">about Us</string>
 
     <string name="copy_right">Copyrights © %1$d</string>
+
+    <!-- AdMob ad unit IDs -->
+    <string name="admob_app_id">ca-app-pub-5648358941873724~2428659354</string>
+    <string name="banner_home_footer">ca-app-pub-5648358941873724/1279406824</string>
+    <string name="interstitial_full_screen">ca-app-pub-5648358941873724/9937282589</string>
+    <string name="rewarded_video">ca-app-pub-XXXXXXXX~XXXXXXXXXXX</string>
+
+    <string name="test_banner">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="test_ineterstitial">ca-app-pub-3940256099942544/1033173712</string>
 
 </resources>

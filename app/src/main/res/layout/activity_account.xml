@@ -136,7 +136,8 @@
         android:orientation="vertical"
         android:layout_below="@+id/go_to_mpesa_card"
         android:padding="5dp"
-        android:layout_marginTop="8dp">
+        android:layout_marginTop="8dp"
+        android:visibility="gone">
 
         <EditText
             android:id="@+id/etTransCode"
