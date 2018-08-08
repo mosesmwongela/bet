@@ -1,10 +1,18 @@
 [
     {
-        "merged": "C:\\Users\\Moses\\AndroidStudioProjects\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v11\\ic_stat_amazon.png",
-        "source": "C:\\Users\\Moses\\AndroidStudioProjects\\bet-moja\\updateChecker\\src\\main\\res\\drawable-mdpi-v11\\ic_stat_amazon.png"
+        "merged": "/root/Desktop/Bet Mwitu/bet-moja/C:\\Users\\Moses\\AndroidStudioProjects\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v11\\ic_stat_amazon.png",
+        "source": "/root/Desktop/Bet Mwitu/bet-moja/C:\\Users\\Moses\\AndroidStudioProjects\\bet-moja\\updateChecker\\src\\main\\res\\drawable-mdpi-v11\\ic_stat_amazon.png"
     },
     {
-        "merged": "C:\\Users\\Moses\\AndroidStudioProjects\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v11\\ic_stat_play_store.png",
-        "source": "C:\\Users\\Moses\\AndroidStudioProjects\\bet-moja\\updateChecker\\src\\main\\res\\drawable-mdpi-v11\\ic_stat_play_store.png"
+        "merged": "/root/Desktop/Bet Mwitu/bet-moja/updateChecker/build/intermediates/res/merged/debug/drawable-mdpi-v11/ic_stat_play_store.png",
+        "source": "/root/Desktop/Bet Mwitu/bet-moja/updateChecker/src/main/res/drawable-mdpi-v11/ic_stat_play_store.png"
+    },
+    {
+        "merged": "/root/Desktop/Bet Mwitu/bet-moja/C:\\Users\\Moses\\AndroidStudioProjects\\bet-moja\\updateChecker\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v11\\ic_stat_play_store.png",
+        "source": "/root/Desktop/Bet Mwitu/bet-moja/C:\\Users\\Moses\\AndroidStudioProjects\\bet-moja\\updateChecker\\src\\main\\res\\drawable-mdpi-v11\\ic_stat_play_store.png"
+    },
+    {
+        "merged": "/root/Desktop/Bet Mwitu/bet-moja/updateChecker/build/intermediates/res/merged/debug/drawable-mdpi-v11/ic_stat_amazon.png",
+        "source": "/root/Desktop/Bet Mwitu/bet-moja/updateChecker/src/main/res/drawable-mdpi-v11/ic_stat_amazon.png"
     }
 ]
