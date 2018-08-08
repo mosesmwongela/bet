@@ -18,6 +18,8 @@
 
     <string name="copy_right">Copyrights © %1$d</string>
 
+    <string name="payment">Payment</string>
+
     <!-- AdMob ad unit IDs -->
     <string name="admob_app_id">ca-app-pub-5648358941873724~2428659354</string>
     <string name="banner_home_footer">ca-app-pub-5648358941873724/1279406824</string>
