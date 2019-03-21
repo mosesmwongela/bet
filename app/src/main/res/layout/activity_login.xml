@@ -28,7 +28,7 @@
             android:background="@drawable/edittext_top_bg"
             android:hint="Phone number"
             android:textSize="@dimen/result"
-            android:maxLength="10"
+            android:maxLength="13"
             android:padding="8dp"
             android:inputType="phone"
             android:textColorHint="#bbbbbb" />
