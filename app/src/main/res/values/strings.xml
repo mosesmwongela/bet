@@ -6,7 +6,7 @@
     <string name="action_account">My account</string>
     <string name="action_refresh">Refresh</string>
 
-    <string name="how_to_top_up"><b>How to top-up:\n</b>Send the amount you want credit your account with to our till Number: <b>560921</b>. Your account will be updated and you\'ll get a receipt on email.</string>
+    <string name="how_to_top_up"><b>How to top-up:\n</b>Send a minimum of KES 50 to our till Number: <b>560921</b>. Your account will be credited and you\'ll get a receipt on email.</string>
 
     <string name="username">Username:\t\t\t</string>
     <string name="phonenumber">Phone number:\t</string>
@@ -28,5 +28,11 @@
 
     <string name="test_banner">ca-app-pub-3940256099942544/6300978111</string>
     <string name="test_ineterstitial">ca-app-pub-3940256099942544/1033173712</string>
+
+
+    <string name="facebook_app_id">383967495515802</string>
+    <string name="fb_login_protocol_scheme">fb383967495515802</string>
+
+
 
 </resources>

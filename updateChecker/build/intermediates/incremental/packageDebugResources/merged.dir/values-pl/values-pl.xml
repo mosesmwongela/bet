@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="dialogNegativeButton">Nie, dziękuję</string>
-    <string name="dialogNeutralButton">Póżniej</string>
-    <string name="dialogPositiveButton">Zainstaluj</string>
-    <string name="downloadFor">Sprawdź nową aktualizację %1$s!\nJest ona dostępna w sklepie %2$s.</string>
-    <string name="newUpdateAvailable">Znaleziono nową aktualizację</string>
-</resources>

@@ -50,7 +50,7 @@ public class IntroActivity extends AppIntro {
 
         addSlide(AppIntroFragment.newInstance(
                 "How to top-up",
-                "Your registered m-pesa number is your account number. We will ask you for it during account creation.",
+                "When you create an account, we'll require you to use your safaricom phone number so that your account is credited as soon as you send money to our till number: 560921.",
                 R.drawable.lipa_na_mpesa,
                 getResources().getColor(R.color.primary_dark)));
 

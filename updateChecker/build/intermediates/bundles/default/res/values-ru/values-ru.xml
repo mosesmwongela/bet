@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="dialogNegativeButton">Спасибо, но нет</string>
-    <string name="dialogNeutralButton">Напомнить позже</string>
-    <string name="dialogPositiveButton">Оценить сейчас</string>
-    <string name="downloadFor">Проверьте обновление для %1$s!\nДоступное в настоящее время на %2$s.</string>
-    <string name="newUpdateAvailable">Доступно обновление</string>
-</resources>

@@ -148,7 +148,7 @@ public class SignUpActivity extends AppCompatActivity implements OnClickListener
             errorToast("Enter your phone number");
         }
 
-        Pattern pattern = Pattern.compile("^(?:254|\\+254|0)?(7(?:(?:[12][0-9])|(?:0[0-8])|(?:9[0-2]))[0-9]{6})$");
+        Pattern pattern = Pattern.compile("^(?:254|\\+254|0)?(7(?:(?:[12][0-9])|(?:0[0-8])|(?:9[0-9])|(?:4[0-8]))[0-9]{6})$");
         Matcher matcher = pattern.matcher(strPhone);
         if (matcher.matches()) {
             strPhone = "0" + matcher.group(1);
