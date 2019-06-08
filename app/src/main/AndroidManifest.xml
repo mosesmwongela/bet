@@ -1,76 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.sikumojaventures.betmwitu">
-
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-
-    <application
-        android:name="com.sikumojaventures.betmwitu.app.AppController"
-        android:allowBackup="true"
-        android:icon="@drawable/my_logo"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme"
-        tools:node="replace">
-        <activity
-            android:name="com.sikumojaventures.betmwitu.MainActivity"
-            android:configChanges="orientation"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"
-            android:windowSoftInputMode="adjustPan">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <!--<activity-->
-            <!--android:name="com.sikumojaventures.betmwitu.MainActivity"-->
-            <!--android:configChanges="orientation"-->
-            <!--android:label="@string/app_name"-->
-            <!--android:screenOrientation="portrait"-->
-            <!--android:theme="@style/AppIntroTheme"-->
-            <!--android:windowSoftInputMode="adjustPan" />-->
-
-        <activity
-            android:name="com.sikumojaventures.betmwitu.auth.LoginActivity"
-            android:configChanges="orientation"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"></activity>
-        <activity
-            android:name="com.sikumojaventures.betmwitu.auth.SignUpActivity"
-            android:configChanges="orientation"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"></activity>
-
-        <activity
-            android:name="com.sikumojaventures.betmwitu.AccountActivity"
-            android:configChanges="orientation"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"></activity>
-
-        <activity
-            android:name="com.sikumojaventures.betmwitu.IntroActivity"
-            android:configChanges="orientation"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppIntroTheme"
-            android:windowSoftInputMode="adjustPan" />
-
-        <service
-            android:name="com.sikumojaventures.betmwitu.util.SystemAlertWindowService"
-            android:enabled="true" />
-
-        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
-
-
-    </application>
-
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" package="com.sikumojaventures.betmwitu">
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.VIBRATE" />
+	<application android:name="com.sikumojaventures.betmwitu.app.AppController" android:allowBackup="true" android:icon="@drawable/my_logo" android:label="@string/app_name" android:theme="@style/AppTheme" tools:node="replace">
+		<activity android:name="com.sikumojaventures.betmwitu.MainActivity" android:configChanges="orientation" android:label="@string/app_name" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="adjustPan">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<!-- <activity -->
+		<!-- android:name="com.sikumojaventures.betmwitu.MainActivity" -->
+		<!-- android:configChanges="orientation" -->
+		<!-- android:label="@string/app_name" -->
+		<!-- android:screenOrientation="portrait" -->
+		<!-- android:theme="@style/AppIntroTheme" -->
+		<!-- android:windowSoftInputMode="adjustPan" /> -->
+		<activity android:name="com.sikumojaventures.betmwitu.auth.LoginActivity" android:configChanges="orientation" android:label="@string/app_name" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan">
+		</activity>
+		<activity android:name="com.sikumojaventures.betmwitu.auth.SignUpActivity" android:configChanges="orientation" android:label="@string/app_name" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan">
+		</activity>
+		<activity android:name="com.sikumojaventures.betmwitu.AccountActivity" android:configChanges="orientation" android:label="@string/app_name" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan">
+		</activity>
+		<activity android:name="com.sikumojaventures.betmwitu.IntroActivity" android:configChanges="orientation" android:label="@string/app_name" android:screenOrientation="portrait" android:theme="@style/AppIntroTheme" android:windowSoftInputMode="adjustPan" />
+		<service android:name="com.sikumojaventures.betmwitu.util.SystemAlertWindowService" android:enabled="true" />
+		<meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id" />
+	</application>
 </manifest>
